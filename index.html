@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pratiksha Bande | Cybersecurity · Cloud · AI Security</title>
+<meta name="description" content="Pratiksha Bande — final-year B.E. student in IoT & Cyber Security including Blockchain Technology. CEH-certified, building at the intersection of offensive security, cloud infrastructure, and AI security.">
+<meta property="og:title" content="Pratiksha Bande | Cybersecurity · Cloud · AI Security">
+<meta property="og:description" content="Final-year security engineering student — VAPT, cloud security, DevSecOps, and AI/LLM security. CEH v13 certified.">
+<meta property="og:type" content="website">
+<!-- Canonical URL: add once deployed, e.g. <link rel="canonical" href="https://yourusername.github.io/portfolio/"> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0F14;
+    --surface:#121821;
+    --surface-2:#171F29;
+    --border:#232C37;
+    --text:#E7ECF2;
+    --muted:#8B96A5;
+    --muted-2:#5C6774;
+    --accent:#4FD1C5;
+    --accent-soft:rgba(79,209,197,0.12);
+    --amber:#F2A65A;
+    --amber-soft:rgba(242,166,90,0.12);
+    --danger:#E8697A;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  ::selection{background:var(--accent);color:#03110F;}
+
+  a{color:inherit;text-decoration:none;}
+  .container{max-width:1120px;margin:0 auto;padding:0 24px;}
+
+  /* background grid texture */
+  .grid-field{
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:
+      linear-gradient(rgba(79,209,197,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(79,209,197,0.045) 1px, transparent 1px);
+    background-size:56px 56px;
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 90%);
+  }
+
+  /* left rail nav */
+  .rail{
+    position:fixed;left:0;top:0;bottom:0;width:76px;z-index:40;
+    border-right:1px solid var(--border);
+    background:rgba(11,15,20,0.85);
+    backdrop-filter:blur(8px);
+    display:flex;flex-direction:column;align-items:center;
+    padding:20px 0;
+  }
+  .rail-logo{
+    width:38px;height:38px;border:1px solid var(--border);border-radius:8px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:11px;letter-spacing:0.05em;color:var(--accent);
+    margin-bottom:28px;
+  }
+  .rail-nav{flex:1;display:flex;flex-direction:column;gap:4px;align-items:center;overflow-y:auto;scrollbar-width:none;}
+  .rail-nav::-webkit-scrollbar{display:none;}
+  .rail-item{
+    width:44px;height:44px;display:flex;align-items:center;justify-content:center;
+    font-size:10px;color:var(--muted-2);border-radius:6px;position:relative;cursor:pointer;
+    transition:color .2s, background .2s;
+  }
+  .rail-item:hover, .rail-item.active{color:var(--accent);background:var(--accent-soft);}
+  .rail-item .tick{position:absolute;left:0;top:8px;bottom:8px;width:2px;background:var(--accent);border-radius:2px;opacity:0;transition:opacity .2s;}
+  .rail-item.active .tick{opacity:1;}
+
+  .mobile-topbar{
+    display:none;position:sticky;top:0;z-index:40;
+    background:rgba(11,15,20,0.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+    padding:14px 20px;align-items:center;justify-content:space-between;
+  }
+  .mobile-menu{
+    display:none;position:fixed;inset:0;z-index:50;background:rgba(6,9,12,0.98);
+    padding:80px 24px 24px;overflow-y:auto;
+  }
+  .mobile-menu.open{display:block;}
+  .mobile-menu a{display:block;padding:14px 0;border-bottom:1px solid var(--border);font-family:'Space Grotesk';font-size:18px;}
+
+  main{margin-left:76px;position:relative;z-index:1;}
+  @media (max-width:860px){
+    .rail{display:none;}
+    .mobile-topbar{display:flex;}
+    main{margin-left:0;}
+  }
+
+  section{padding:96px 0;border-bottom:1px solid var(--border);}
+  @media (max-width:640px){section{padding:64px 0;}}
+
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'JetBrains Mono';font-size:12px;letter-spacing:0.12em;
+    color:var(--accent);text-transform:uppercase;margin-bottom:18px;
+  }
+  .eyebrow::before{content:"";width:16px;height:1px;background:var(--accent);}
+
+  .fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease;}
+  .fade-up.in{opacity:1;transform:translateY(0);}
+
+  /* HERO */
+  .hero{padding-top:120px;padding-bottom:80px;border-bottom:1px solid var(--border);position:relative;}
+  .status-strip{
+    display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono';font-size:11.5px;color:var(--muted);
+    margin-bottom:36px;flex-wrap:wrap;
+  }
+  .dot-live{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);}
+  .identity-label{
+    font-family:'Space Grotesk',sans-serif;font-size:clamp(1.35rem, 3vw, 1.75rem);letter-spacing:0.10em;color:var(--text);
+    margin-bottom:28px;display:flex;flex-direction:column;gap:6px;font-weight:700;text-transform:uppercase;
+  }
+  .identity-sub{
+    color:var(--muted);font-size:12px;letter-spacing:0.14em;font-weight:500;font-family:'JetBrains Mono';text-transform:uppercase;
+  }
+  .hero-headline{margin:0 0 24px;letter-spacing:-0.02em;}
+  .hero-line1{
+    display:block;font-size:clamp(2.4rem,6.4vw,4.2rem);line-height:1.05;font-weight:700;color:var(--text);
+    max-width:820px;
+  }
+  .hero-line1 .hl{color:var(--accent);}
+  .hero-sub{font-family:'Space Grotesk';font-size:clamp(1.05rem,2.4vw,1.35rem);color:#B9C2CD;margin-bottom:22px;font-weight:500;}
+  .hero-desc{max-width:640px;color:var(--muted);font-size:1rem;line-height:1.7;margin-bottom:36px;}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;}
+  .btn-primary{
+    background:var(--accent);color:#04191A;font-weight:600;padding:13px 26px;border-radius:8px;
+    font-size:14.5px;display:inline-flex;align-items:center;gap:8px;transition:transform .15s, box-shadow .15s;
+    border:1px solid var(--accent);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px -8px rgba(79,209,197,0.5);}
+  .btn-ghost{
+    border:1px solid var(--border);color:var(--text);padding:13px 26px;border-radius:8px;font-size:14.5px;font-weight:500;
+    display:inline-flex;align-items:center;gap:8px;transition:border-color .15s,color .15s;
+  }
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+  .social-row{display:flex;gap:22px;font-family:'JetBrains Mono';font-size:13px;color:var(--muted);flex-wrap:wrap;}
+  .social-row a{border-bottom:1px solid transparent;transition:border-color .15s,color .15s;}
+  .social-row a:hover{color:var(--accent);border-color:var(--accent);}
+
+  .cred-strip{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:12px;margin-top:56px;overflow:hidden;}
+  .cred-cell{padding:20px 18px;border-right:1px solid var(--border);}
+  .cred-cell:last-child{border-right:none;}
+  .cred-num{font-family:'Space Grotesk';font-size:1.5rem;font-weight:700;color:var(--accent);}
+  .cred-label{font-family:'JetBrains Mono';font-size:10.5px;color:var(--muted);letter-spacing:0.06em;margin-top:4px;text-transform:uppercase;}
+  @media (max-width:700px){.cred-strip{grid-template-columns:repeat(2,1fr);} .cred-cell:nth-child(2){border-right:none;}}
+
+  /* SYSTEM PROFILE */
+  .profile-grid{display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:start;}
+  @media (max-width:800px){.profile-grid{grid-template-columns:1fr;}}
+  .photo-frame{
+    position:relative;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--surface);
+  }
+  .photo-frame img{width:100%;display:block;filter:grayscale(0.15) contrast(1.05);}
+  .photo-tag{
+    position:absolute;bottom:0;left:0;right:0;padding:10px 14px;background:rgba(6,9,12,0.75);backdrop-filter:blur(4px);
+    font-family:'JetBrains Mono';font-size:10.5px;color:var(--accent);display:flex;justify-content:space-between;
+    border-top:1px solid var(--border);
+  }
+  .sys-card{border:1px solid var(--border);border-radius:12px;background:var(--surface);}
+  .sys-row{display:flex;justify-content:space-between;padding:16px 22px;border-bottom:1px solid var(--border);font-size:14px;gap:16px;}
+  .sys-row:last-child{border-bottom:none;}
+  .sys-key{font-family:'JetBrains Mono';color:var(--muted);font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;padding-top:2px;white-space:nowrap;}
+  .sys-val{font-weight:500;text-align:right;}
+  .intro-text{color:var(--muted);line-height:1.75;font-size:1rem;margin-top:28px;max-width:640px;}
+  .intro-text strong{color:var(--text);font-weight:600;}
+
+  /* EDUCATION */
+  .edu-card{border:1px solid var(--border);border-radius:12px;padding:28px 30px;background:var(--surface);margin-bottom:18px;}
+  .edu-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:10px;}
+  .edu-school{font-family:'Space Grotesk';font-weight:600;font-size:1.15rem;}
+  .edu-years{font-family:'JetBrains Mono';font-size:12px;color:var(--muted);}
+  .edu-degree{color:var(--muted);font-size:.95rem;margin-bottom:18px;}
+  .stat-bar-row{display:flex;gap:28px;flex-wrap:wrap;}
+  .stat-block{}
+  .stat-val{font-family:'Space Grotesk';font-size:1.6rem;font-weight:700;color:var(--accent);}
+  .stat-lab{font-family:'JetBrains Mono';font-size:10.5px;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase;margin-top:2px;}
+  .badge{
+    display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono';font-size:10.5px;
+    padding:5px 10px;border-radius:999px;border:1px solid var(--accent);color:var(--accent);letter-spacing:0.04em;
+  }
+  .edu-secondary{opacity:0.7;padding:20px 30px;font-size:.9rem;color:var(--muted);border:1px dashed var(--border);border-radius:12px;}
+
+  /* SKILLS */
+  .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  @media (max-width:860px){.cap-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.cap-grid{grid-template-columns:1fr;}}
+  .cap-card{border:1px solid var(--border);border-radius:12px;padding:22px 22px 20px;background:var(--surface);transition:border-color .2s, transform .2s;}
+  .cap-card:hover{border-color:var(--accent);transform:translateY(-3px);}
+  .cap-head{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+  .cap-idx{font-family:'JetBrains Mono';font-size:11px;color:var(--muted-2);}
+  .cap-title{font-family:'Space Grotesk';font-weight:600;font-size:.98rem;}
+  .cap-list{display:flex;flex-wrap:wrap;gap:7px;}
+  .chip{font-family:'JetBrains Mono';font-size:11px;color:var(--muted);border:1px solid var(--border);padding:5px 9px;border-radius:6px;}
+
+  /* PROJECTS */
+  .proj{border:1px solid var(--border);border-radius:14px;background:var(--surface);margin-bottom:22px;overflow:hidden;}
+  .proj-head{display:flex;justify-content:space-between;align-items:flex-start;padding:26px 28px 0;gap:16px;flex-wrap:wrap;}
+  .proj-idx{font-family:'JetBrains Mono';font-size:12px;color:var(--accent);}
+  .proj-cat{font-family:'JetBrains Mono';font-size:10.5px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-top:6px;}
+  .proj-title{font-family:'Space Grotesk';font-size:1.4rem;font-weight:600;margin:10px 0 0;}
+  .proj-status{font-family:'JetBrains Mono';font-size:10px;padding:5px 10px;border-radius:999px;letter-spacing:0.05em;white-space:nowrap;height:fit-content;}
+  .status-active{background:var(--accent-soft);color:var(--accent);border:1px solid var(--accent);}
+  .status-shipped{background:var(--amber-soft);color:var(--amber);border:1px solid var(--amber);}
+  .proj-body{padding:20px 28px 28px;}
+  .proj-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:20px;}
+  @media (max-width:700px){.proj-cols{grid-template-columns:1fr;}}
+  .proj-label{font-family:'JetBrains Mono';font-size:10.5px;color:var(--muted-2);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;}
+  .proj-text{color:#C7D0DA;font-size:.92rem;line-height:1.65;}
+  .proj-text ul{margin:0;padding-left:18px;}
+  .proj-text li{margin-bottom:6px;}
+  .tech-row{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px;}
+  .tech-chip{font-family:'JetBrains Mono';font-size:11px;background:var(--surface-2);border:1px solid var(--border);color:var(--accent);padding:5px 10px;border-radius:6px;}
+  .proj-cta{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono';font-size:12.5px;color:var(--text);border:1px solid var(--border);padding:10px 16px;border-radius:8px;transition:border-color .2s,color .2s;}
+  .proj-cta:hover{border-color:var(--accent);color:var(--accent);}
+
+  /* TIMELINE */
+  .timeline{position:relative;padding-left:32px;}
+  .timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:1px;background:var(--border);}
+  .tl-item{position:relative;padding-bottom:36px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-dot{position:absolute;left:-32px;top:4px;width:13px;height:13px;border-radius:50%;background:var(--bg);border:2px solid var(--accent);}
+  .tl-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:6px;}
+  .tl-org{font-family:'Space Grotesk';font-weight:600;font-size:1.05rem;}
+  .tl-date{font-family:'JetBrains Mono';font-size:11.5px;color:var(--muted);}
+  .tl-role{color:var(--accent);font-size:.85rem;font-family:'JetBrains Mono';margin-bottom:10px;}
+  .tl-text{color:var(--muted);font-size:.9rem;line-height:1.65;}
+  .tl-text ul{margin:6px 0 0;padding-left:18px;}
+  .tl-text li{margin-bottom:5px;}
+  .tl-link{display:inline-flex;gap:6px;align-items:center;font-family:'JetBrains Mono';font-size:11.5px;color:var(--muted);margin-top:10px;border-bottom:1px solid var(--border);}
+  .tl-link:hover{color:var(--accent);border-color:var(--accent);}
+
+  /* CERTS */
+  .cert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  @media (max-width:700px){.cert-grid{grid-template-columns:1fr;}}
+  .cert-card{border:1px solid var(--border);border-radius:12px;padding:22px 24px;background:var(--surface);display:flex;flex-direction:column;gap:10px;transition:border-color .2s;}
+  .cert-card.feature{border-color:var(--accent);background:linear-gradient(180deg, var(--accent-soft), transparent 60%);grid-column:1 / -1;}
+  .cert-card:hover{border-color:var(--accent);}
+  .cert-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .cert-id{font-family:'JetBrains Mono';font-size:10.5px;color:var(--muted-2);}
+  .cert-name{font-family:'Space Grotesk';font-weight:600;font-size:1.05rem;margin-top:4px;}
+  .cert-issuer{color:var(--muted);font-size:.85rem;margin-top:2px;}
+  .verified-stamp{display:flex;align-items:center;gap:5px;font-family:'JetBrains Mono';font-size:10px;color:var(--accent);border:1px solid var(--accent);padding:4px 8px;border-radius:6px;white-space:nowrap;}
+  .cert-link{font-family:'JetBrains Mono';font-size:11.5px;color:var(--text);border-bottom:1px solid var(--border);width:fit-content;}
+  .cert-link:hover{color:var(--accent);border-color:var(--accent);}
+
+  /* ACHIEVEMENTS */
+  .ach-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  @media (max-width:700px){.ach-grid{grid-template-columns:1fr;}}
+  .ach-card{border:1px solid var(--border);border-radius:12px;padding:22px 24px;background:var(--surface);}
+  .ach-name{font-family:'Space Grotesk';font-weight:600;font-size:1.05rem;margin-bottom:6px;}
+  .ach-meta{font-family:'JetBrains Mono';font-size:11px;color:var(--muted);margin-bottom:10px;}
+  .ach-desc{color:var(--muted);font-size:.88rem;line-height:1.6;}
+
+  /* LEADERSHIP */
+  .lead-card{border:1px solid var(--accent);border-radius:14px;padding:34px;background:linear-gradient(135deg, var(--accent-soft), transparent 70%);}
+  .lead-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:18px;}
+  .lead-role{font-family:'Space Grotesk';font-weight:700;font-size:1.5rem;}
+  .lead-org{color:var(--muted);font-size:.92rem;margin-top:4px;}
+  .lead-stat{display:flex;gap:10px;align-items:baseline;}
+  .lead-stat .num{font-family:'Space Grotesk';font-size:2rem;font-weight:700;color:var(--accent);}
+  .lead-stat .lab{font-family:'JetBrains Mono';font-size:11px;color:var(--muted);}
+  .lead-desc{color:#C7D0DA;line-height:1.7;font-size:.95rem;max-width:640px;}
+
+  /* GITHUB */
+  .gh-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+  .gh-badge{border:1px solid var(--border);border-radius:10px;padding:16px 20px;background:var(--surface);display:flex;align-items:center;gap:12px;}
+  .gh-icon{width:34px;height:34px;border-radius:8px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);font-family:'Space Grotesk';font-weight:700;}
+  .gh-name{font-family:'Space Grotesk';font-weight:600;font-size:.92rem;}
+  .gh-desc{font-size:.78rem;color:var(--muted);}
+
+  /* WHY ME */
+  .why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  @media (max-width:700px){.why-grid{grid-template-columns:1fr;}}
+  .why-card{border:1px solid var(--border);border-radius:12px;padding:26px;background:var(--surface);}
+  .why-idx{font-family:'JetBrains Mono';font-size:11px;color:var(--accent);margin-bottom:14px;}
+  .why-title{font-family:'Space Grotesk';font-weight:600;font-size:1.1rem;margin-bottom:10px;}
+  .why-text{color:var(--muted);font-size:.9rem;line-height:1.65;}
+
+  /* CONTACT */
+  .contact-wrap{text-align:center;padding:20px 0;}
+  .contact-h{font-family:'Space Grotesk';font-size:clamp(2rem,6vw,3.4rem);font-weight:700;margin:0 0 18px;letter-spacing:-0.02em;}
+  .contact-sub{color:var(--muted);max-width:520px;margin:0 auto 40px;line-height:1.7;}
+  .contact-grid{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:48px;}
+  .contact-chip{border:1px solid var(--border);border-radius:10px;padding:16px 22px;font-family:'JetBrains Mono';font-size:13px;transition:border-color .2s,color .2s;}
+  .contact-chip:hover{border-color:var(--accent);color:var(--accent);}
+
+  footer{padding:36px 0;text-align:center;color:var(--muted-2);font-family:'JetBrains Mono';font-size:11.5px;}
+
+  .section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px;flex-wrap:wrap;gap:16px;}
+  .section-title{font-size:clamp(1.7rem,4vw,2.3rem);font-weight:700;letter-spacing:-0.01em;margin:0;}
+  .section-file{font-family:'JetBrains Mono';font-size:11.5px;color:var(--muted-2);}
+</style>
+</head>
+<body>
+
+<div class="grid-field"></div>
+
+<!-- MOBILE TOPBAR -->
+<div class="mobile-topbar">
+  <span class="mono" style="font-size:13px;color:var(--accent);">PB // INDEX</span>
+  <button id="menuBtn" aria-label="Open menu" aria-expanded="false" style="background:none;border:1px solid var(--border);border-radius:6px;color:var(--text);padding:8px 12px;font-family:'JetBrains Mono';font-size:11px;">MENU</button>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hero">00 · Hero</a>
+  <a href="#profile">01 · System Profile</a>
+  <a href="#education">02 · Education</a>
+  <a href="#skills">03 · Capability</a>
+  <a href="#projects">04 · Project Lab</a>
+  <a href="#experience">05 · Experience</a>
+  <a href="#research">06 · Research</a>
+  <a href="#certifications">07 · Certifications</a>
+  <a href="#achievements">08 · Hackathons</a>
+  <a href="#leadership">09 · Leadership</a>
+  <a href="#github">10 · GitHub</a>
+  <a href="#why">11 · Why Me</a>
+  <a href="#contact">12 · Contact</a>
+</div>
+
+<!-- LEFT RAIL -->
+<nav class="rail" aria-label="Section navigation">
+  <a href="#hero" class="rail-logo">PB</a>
+  <div class="rail-nav">
+    <a href="#hero" class="rail-item" data-label="Hero"><div class="tick"></div>00</a>
+    <a href="#profile" class="rail-item" data-label="System Profile"><div class="tick"></div>01</a>
+    <a href="#education" class="rail-item" data-label="Education"><div class="tick"></div>02</a>
+    <a href="#skills" class="rail-item" data-label="Capability"><div class="tick"></div>03</a>
+    <a href="#projects" class="rail-item" data-label="Project Lab"><div class="tick"></div>04</a>
+    <a href="#experience" class="rail-item" data-label="Experience"><div class="tick"></div>05</a>
+    <a href="#research" class="rail-item" data-label="Research"><div class="tick"></div>06</a>
+    <a href="#certifications" class="rail-item" data-label="Certifications"><div class="tick"></div>07</a>
+    <a href="#achievements" class="rail-item" data-label="Hackathons"><div class="tick"></div>08</a>
+    <a href="#leadership" class="rail-item" data-label="Leadership"><div class="tick"></div>09</a>
+    <a href="#github" class="rail-item" data-label="GitHub"><div class="tick"></div>10</a>
+    <a href="#why" class="rail-item" data-label="Why Me"><div class="tick"></div>11</a>
+    <a href="#contact" class="rail-item" data-label="Contact"><div class="tick"></div>12</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="container">
+      <div class="status-strip">
+        <span class="dot-live"></span>
+        <span>STATUS: FINAL-YEAR UNDERGRADUATE · OPEN TO INTERNSHIPS</span>
+      </div>
+      <div class="identity-label">PRATIKSHA BANDE<span class="identity-sub">Final-Year Cybersecurity Student</span></div>
+      <h1 class="hero-headline">
+        <span class="hero-line1">WHERE SYSTEMS MEET <span class="hl">SECURITY.</span></span>
+      </h1>
+      <p class="hero-sub">Cybersecurity × Cloud × AI Security × Blockchain</p>
+      <p class="hero-desc">Final-year engineering student working across offensive security, cloud infrastructure and AI/LLM security — turning security requirements into systems that hold up under real conditions.</p>
+      <div class="cta-row">
+        <a href="#projects" class="btn-primary" id="exploreWorkBtn">Explore My Work →</a>
+        <a href="./Pratiksha_Bande_Resume.pdf" class="btn-ghost" download>Download Résumé ↓</a>
+      </div>
+      <div class="social-row">
+        <a href="https://www.linkedin.com/in/bandepratiksha28" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/Pratikshaprabhakarbande" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://tryhackme.com/p/bandepratiksha8" target="_blank" rel="noopener">TryHackMe ↗</a>
+      </div>
+
+      <div class="cred-strip">
+        <div class="cred-cell"><div class="cred-num">8.08</div><div class="cred-label">CGPA / 10</div></div>
+        <div class="cred-cell"><div class="cred-num">8.89</div><div class="cred-label">6th Sem SGPA</div></div>
+        <div class="cred-cell"><div class="cred-num">CEH</div><div class="cred-label">v13 Certified</div></div>
+        <div class="cred-cell"><div class="cred-num">2027</div><div class="cred-label">Graduate</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SYSTEM PROFILE -->
+  <section id="profile">
+    <div class="container">
+      <div class="section-head fade-up">
+        <h2 class="section-title">System Profile</h2>
+        <span class="section-file mono">FILE // 01 — IDENTITY</span>
+      </div>
+      <div class="profile-grid fade-up">
+        <div>
+          <div class="photo-frame">
+            <img src="./Pratiksha_Bande_Profile.jpg" alt="Pratiksha Bande — Cybersecurity Student" loading="lazy">
+            <div class="photo-tag"><span>IMG_PB_01</span><span>VERIFIED ✓</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="sys-card">
+            <div class="sys-row"><span class="sys-key">Name</span><span class="sys-val">Pratiksha Bande</span></div>
+            <div class="sys-row"><span class="sys-key">Focus</span><span class="sys-val">Cybersecurity + Cloud + AI Security</span></div>
+            <div class="sys-row"><span class="sys-key">Education</span><span class="sys-val">C.S.E. × IoT × Cyber Security × Blockchain</span></div>
+            <div class="sys-row"><span class="sys-key">Status</span><span class="sys-val">Final-Year Undergraduate</span></div>
+            <div class="sys-row"><span class="sys-key">Location</span><span class="sys-val">Bidar, Karnataka, India</span></div>
+          </div>
+          <p class="intro-text">Pratiksha is a final-year B.E. student specializing in <strong>offensive security, cloud security and AI/LLM security</strong>, with hands-on experience across VAPT, ethical hacking, and DevSecOps using Terraform and Docker. She's CEH v13 certified and comfortable in Kali Linux, Burp Suite, Nmap, Wireshark and Zeek — and spends her project time where those disciplines overlap: securing cloud deployments, red-teaming AI models, and building blockchain-backed compliance systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+      <div class="section-head fade-up">
+        <h2 class="section-title">Education</h2>
+        <span class="section-file mono">FILE // 02 — ACADEMIC RECORD</span>
+      </div>
+      <div class="fade-up">
+        <div class="edu-card">
+          <div class="edu-top">
+            <span class="edu-school">Guru Nanak Dev Engineering College, Bidar — VTU</span>
+            <span class="edu-years">2023 – 2027</span>
+          </div>
+          <div class="edu-degree">B.E. in C.S.E., IoT and Cyber Security including Blockchain Technology</div>
+          <div class="stat-bar-row">
+            <div class="stat-block"><div class="stat-val">8.08 / 10</div><div class="stat-lab">Current CGPA</div></div>
+            <div class="stat-block"><div class="stat-val">8.89</div><div class="stat-lab">6th Sem SGPA</div></div>
+            <div class="stat-block" style="display:flex;align-items:center;"><span class="badge">FIRST CLASS WITH DISTINCTION</span></div>
+          </div>
+        </div>
+        <div class="edu-secondary">Guru Nanak Public School — Class X · 83% · 2020</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-head fade-up">
+        <h2 class="section-title">Capability System</h2>
+        <span class="section-file mono">FILE // 03 — STACK</span>
+      </div>
+      <div class="cap-grid fade-up">
+
+        <div class="cap-card">
+          <div class="cap-head"><span class="cap-idx">01</span><span class="cap-title">Offensive Security</span></div>
+          <div class="cap-list">
+            <span class="chip">Penetration Testing</span><span class="chip">VAPT</span><span class="chip">Ethical Hacking</span>
+            <span class="chip">Threat Analysis</span><span class="chip">Network Security</span><span class="chip">OWASP Top 10</span>
+          </div>
+        </div>
+
+        <div class="cap-card">
+          <div class="cap-head"><span class="cap-idx">02</span><span class="cap-title">AI Security</span></div>
+          <div class="cap-list">
+            <span class="chip">LLM Security</span><span class="chip">Prompt Injection</span><span class="chip">RAG Security</span>
+            <span class="chip">MCP Security</span><span class="chip">Adversarial AI</span><span class="chip">AI Defence</span>
+          </div>
+        </div>
+
+        <div class="cap-card">
+          <div class="cap-head"><span class="cap-idx">03</span><span class="cap-title">Cloud</span></div>
+          <div class="cap-list">
+            <span class="chip">AWS</span><span class="chip">Oracle Cloud Infrastructure</span><span class="chip">Azure (Foundational)</span>
+          </div>
+        </div>
+
+        <div class="cap-card">
+          <div class="cap-head"><span class="cap-idx">04</span><span class="cap-title">Containers & Orchestration</span></div>
+          <div class="cap-list">
+            <span class="chip">Docker</span><span class="chip">Kubernetes</span>
+          </div>
+        </div>
+
+        <div class="cap-card">
+          <div class="cap-head"><span class="cap-idx">05</span><span class="cap-title">DevOps / IaC</span></div>
+          <div class="cap-list">
+            <span class="chip">Terraform</span><span class="chip">GitHub Actions</span><span class="chip">Jenkins</span>
+          </div>
+        </div>
+
+        <div class="cap-card">
+          <div class="cap-head"><span class="cap-idx">06</span><span class="cap-title">Programming & Development</span></div>
+          <div class="cap-list">
+            <span class="chip">Python</span><span class="chip">Java</span><span class="chip">C</span><span class="chip">JavaScript</span>
+            <span class="chip">TypeScript</span><span class="chip">React.js</span><span class="chip">Node.js</span><span class="chip">Flask</span>
+            <span class="chip">FastAPI</span><span class="chip">SQL</span><span class="chip">MongoDB</span><span class="chip">Web3.py</span>
+            <span class="chip">HTML/CSS</span><span class="chip">REST APIs</span>
+          </div>
+        </div>
+
+        <div class="cap-card">
+          <div class="cap-head"><span class="cap-idx">07</span><span class="cap-title">Security Tools</span></div>
+          <div class="cap-list">
+            <span class="chip">Kali Linux</span><span class="chip">Wireshark</span><span class="chip">Burp Suite</span><span class="chip">Metasploit</span>
+            <span class="chip">Nmap</span><span class="chip">Zeek</span><span class="chip">Splunk (Foundational)</span><span class="chip">Git</span>
+            <span class="chip">GitHub</span><span class="chip">VS Code</span><span class="chip">VirtualBox</span><span class="chip">Vagrant</span>
+          </div>
+        </div>
+
+        <div class="cap-card">
+          <div class="cap-head"><span class="cap-idx">08</span><span class="cap-title">Operating Systems</span></div>
+          <div class="cap-list">
+            <span class="chip">Linux</span><span class="chip">Windows</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT LAB -->
+  <section id="projects" style="scroll-margin-top:90px;">
+    <div class="container">
+      <div class="section-head fade-up">
+        <h2 class="section-title">Project Lab</h2>
+        <span class="section-file mono">FILE // 04 — BUILD LOG</span>
+      </div>
+
+      <div class="fade-up">
+        <!-- PROJECT 01 -->
+        <div class="proj">
+          <div class="proj-head">
+            <div>
+              <div class="proj-idx">PROJECT 01</div>
+              <div class="proj-cat">Cloud Infrastructure · DevSecOps</div>
+              <h3 class="proj-title">AI-Powered Multi-Cloud Portability & Deployment Automation Platform</h3>
+            </div>
+            <span class="proj-status status-active">ACTIVE · MAR 2026 – PRESENT</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-cols">
+              <div>
+                <div class="proj-label">What It Solves</div>
+                <div class="proj-text">Provisioning infrastructure consistently across multiple clouds without repeating manual setup for every environment.</div>
+              </div>
+              <div>
+                <div class="proj-label">What I Built</div>
+                <div class="proj-text"><ul>
+                  <li>Scalable multi-cloud infrastructure designed with Terraform</li>
+                  <li>Containerized application environments with Docker for consistent deployment</li>
+                  <li>Manual provisioning effort reduced by ~35–40%</li>
+                </ul></div>
+              </div>
+            </div>
+            <div class="tech-row">
+              <span class="tech-chip">Terraform</span><span class="tech-chip">Docker</span><span class="tech-chip">Cloud Infrastructure</span>
+            </div>
+            <a href="https://github.com/Pratikshaprabhakarbande/AI-Powered-Multi-Cloud-Portability-and-Deployment-Automation-Platform" target="_blank" rel="noopener" class="proj-cta">View Repository ↗</a>
+          </div>
+        </div>
+
+        <!-- PROJECT 02 -->
+        <div class="proj">
+          <div class="proj-head">
+            <div>
+              <div class="proj-idx">PROJECT 02</div>
+              <div class="proj-cat">Data Privacy · Blockchain Security</div>
+              <h3 class="proj-title">DPDP Act 2023 Compliance & Data Privacy Protection System</h3>
+            </div>
+            <span class="proj-status status-active">ACTIVE · 2026 – PRESENT</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-cols">
+              <div>
+                <div class="proj-label">What It Solves</div>
+                <div class="proj-text">Healthcare platforms need to prove compliance with India's DPDP Act 2023 — verifiable consent, tamper-evident logs, and a real mechanism for correction and erasure.</div>
+              </div>
+              <div>
+                <div class="proj-label">What I Built</div>
+                <div class="proj-text"><ul>
+                  <li>Docker-containerized platform with role-based Patient, Doctor and Admin dashboards</li>
+                  <li>JWT authentication and AES-256 encryption across the stack</li>
+                  <li>Blockchain-backed consent verification and immutable audit trails on Ethereum (Ganache)</li>
+                  <li>Chameleon Hash redaction supporting Right to Correction and Right to Erasure</li>
+                </ul></div>
+              </div>
+            </div>
+            <div class="tech-row">
+              <span class="tech-chip">React</span><span class="tech-chip">TypeScript</span><span class="tech-chip">Flask</span>
+              <span class="tech-chip">MongoDB</span><span class="tech-chip">JWT</span><span class="tech-chip">AES-256</span>
+              <span class="tech-chip">Ethereum</span><span class="tech-chip">Ganache</span><span class="tech-chip">Web3.py</span>
+            </div>
+            <a href="https://github.com/Pratikshaprabhakarbande/dpdp-blockchain-healthcare-management" target="_blank" rel="noopener" class="proj-cta">View Repository ↗</a>
+          </div>
+        </div>
+
+        <!-- PROJECT 03 -->
+        <div class="proj">
+          <div class="proj-head">
+            <div>
+              <div class="proj-idx">PROJECT 03</div>
+              <div class="proj-cat">AI Security · Red Team / Blue Team</div>
+              <h3 class="proj-title">Adversarial AI Attack vs Defense Simulator</h3>
+            </div>
+            <span class="proj-status status-shipped">SHIPPED</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-cols">
+              <div>
+                <div class="proj-label">What It Solves</div>
+                <div class="proj-text">Model robustness claims mean little without a way to actually attack a model and measure how well its defenses hold up.</div>
+              </div>
+              <div>
+                <div class="proj-label">What I Built</div>
+                <div class="proj-text"><ul>
+                  <li>Red Team vs Blue Team simulator with configurable attack strength</li>
+                  <li>FGSM and PGD adversarial attacks</li>
+                  <li>Defenses: adversarial training, denoising, randomized smoothing</li>
+                  <li>Benchmarking of attack success rate vs. defense effectiveness</li>
+                </ul></div>
+              </div>
+            </div>
+            <div class="tech-row">
+              <span class="tech-chip">PyTorch</span><span class="tech-chip">FGSM</span><span class="tech-chip">PGD</span>
+            </div>
+            <a href="https://github.com/Pratikshaprabhakarbande/Adversarial-AI-Attack-vs-Defense-Simulator" target="_blank" rel="noopener" class="proj-cta">View Repository ↗</a>
+          </div>
+        </div>
+
+        <!-- PROJECT 04 -->
+        <div class="proj">
+          <div class="proj-head">
+            <div>
+              <div class="proj-idx">PROJECT 04</div>
+              <div class="proj-cat">Cloud Infrastructure · IaC</div>
+              <h3 class="proj-title">Automated Cloud Infrastructure Setup</h3>
+            </div>
+            <span class="proj-status status-shipped">SHIPPED</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-cols">
+              <div>
+                <div class="proj-label">What It Solves</div>
+                <div class="proj-text">Manual cloud provisioning is slow and error-prone across environments — this automates it end to end.</div>
+              </div>
+              <div>
+                <div class="proj-label">What I Built</div>
+                <div class="proj-text"><ul>
+                  <li>Automated infrastructure provisioning with Terraform on OCI</li>
+                  <li>Manual provisioning effort reduced by ~40%</li>
+                  <li>Automated deployment workflows, cutting configuration errors by ~30%</li>
+                </ul></div>
+              </div>
+            </div>
+            <div class="tech-row">
+              <span class="tech-chip">Terraform</span><span class="tech-chip">Oracle Cloud Infrastructure</span>
+            </div>
+            <a href="https://github.com/Pratikshaprabhakarbande/AWS-Terraform-IaC-Provisioning" target="_blank" rel="noopener" class="proj-cta">View Repository ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-head fade-up">
+        <h2 class="section-title">Experience</h2>
+        <span class="section-file mono">FILE // 05 — INTERNSHIP LOG</span>
+      </div>
+      <div class="timeline fade-up">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-top"><span class="tl-org">CodeAlpha</span><span class="tl-date">May 2026</span></div>
+          <div class="tl-role">Cyber Security Intern</div>
+          <div class="tl-text">
+            <ul>
+              <li>Engineered and deployed a network monitoring solution to analyze traffic patterns and detect anomalies</li>
+              <li>Performed static code analysis to identify vulnerabilities and support secure software practices</li>
+            </ul>
+          </div>
+          <a href="https://github.com/Pratikshaprabhakarbande/CodeAlpha-Cybersecurity-Internship" target="_blank" rel="noopener" class="tl-link">Repository ↗</a>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-top"><span class="tl-org">Thiranex</span><span class="tl-date">May 2026 – Jun 2026</span></div>
+          <div class="tl-role">Cyber Security Intern</div>
+          <div class="tl-text">
+            <ul>
+              <li>Conducted vulnerability assessments and completed practical cybersecurity projects under industry mentorship</li>
+            </ul>
+          </div>
+          <a href="https://github.com/Pratikshaprabhakarbande/Thiranex-Cybersecurity-Internship" target="_blank" rel="noopener" class="tl-link">Repository ↗</a>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-top"><span class="tl-org">Future Interns</span><span class="tl-date">Jun 2025 – Jul 2025</span></div>
+          <div class="tl-role">Cybersecurity Intern (Trainee)</div>
+          <div class="tl-text">
+            <ul>
+              <li>Performed analysis and testing on web applications and network systems, identifying issues and supporting resolution</li>
+              <li>Assisted in monitoring system activities, analyzing application logs, and documenting findings</li>
+            </ul>
+          </div>
+          <a href="https://github.com/Pratikshaprabhakarbande/Future-Interns-Cybersecurity-Internship-Tasks" target="_blank" rel="noopener" class="tl-link">Repository ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="container">
+      <div class="section-head fade-up">
+        <h2 class="section-title">Research</h2>
+        <span class="section-file mono">FILE // 06 — PUBLICATION</span>
+      </div>
+      <div class="cert-card feature fade-up" style="display:flex;flex-direction:column;gap:14px;">
+        <div class="cert-top">
+          <div>
+            <div class="cert-id">HBRP RESEARCH PUBLICATION · VOL. 01, ISSUE 02, 2025</div>
+            <div class="cert-name">ARP Poisoning Prevention Using ICMP-Based Validation and Centralized Voting</div>
+          </div>
+          <span class="verified-stamp">PUBLISHED ✓</span>
+        </div>
+        <a href="https://drive.google.com/file/d/1pRaDEjSbWHnKvdUpz2zANl35r4nhR_EE/view" target="_blank" rel="noopener noreferrer" class="cert-link">VIEW PUBLICATION ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="container">
+      <div class="section-head fade-up">
+        <h2 class="section-title">Certification Vault</h2>
+        <span class="section-file mono">FILE // 07 — VERIFIED CREDENTIALS</span>
+      </div>
+      <div class="cert-grid fade-up">
+
+        <div class="cert-card feature">
+          <div class="cert-top">
+            <div>
+              <div class="cert-id">01 · EC-COUNCIL</div>
+              <div class="cert-name">Certified Ethical Hacker (CEH v13)</div>
+              <div class="cert-issuer">Ethical Hacking & Penetration Testing</div>
+            </div>
+            <span class="verified-stamp">VERIFIED ✓</span>
+          </div>
+          <a href="https://drive.google.com/file/d/14d68RnLBlQWVsVq1BrOlT6pDUvpeoExb/view" target="_blank" rel="noopener" class="cert-link">View Certificate ↗</a>
+        </div>
+
+        <div class="cert-card feature">
+          <div class="cert-top">
+            <div>
+              <div class="cert-id">04 · RED TEAM LEADERS</div>
+              <div class="cert-name">Certified LLM Security Expert (CLLMSE)</div>
+              <div class="cert-issuer">LLM Security, Prompt Injection & AI Security</div>
+            </div>
+            <span class="verified-stamp">VERIFIED ✓</span>
+          </div>
+          <a href="https://drive.google.com/file/d/1ltqb8ZQeZhc9OoRGLhYsM0qnzcde0fIE/view" target="_blank" rel="noopener" class="cert-link">View Certificate ↗</a>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-top">
+            <div>
+              <div class="cert-id">02 · HACK & FIX ACADEMY</div>
+              <div class="cert-name">Certified Online Fraud Prevention Specialist</div>
+              <div class="cert-issuer">Fraud Detection & Prevention</div>
+            </div>
+            <span class="verified-stamp">VERIFIED ✓</span>
+          </div>
+          <a href="https://drive.google.com/file/d/1J6UY7eQV5yva5bJZq9koCsJVF8ebiKfp/view" target="_blank" rel="noopener" class="cert-link">View Certificate ↗</a>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-top">
+            <div>
+              <div class="cert-id">03 · ORACLE UNIVERSITY</div>
+              <div class="cert-name">OCI 2025 Certified Foundations Associate</div>
+              <div class="cert-issuer">Cloud Infrastructure Fundamentals</div>
+            </div>
+            <span class="verified-stamp">VERIFIED ✓</span>
+          </div>
+          <a href="https://drive.google.com/file/d/17syHEn_yceBaEp6gYjzcD7IJCqq-eoDZ/view" target="_blank" rel="noopener" class="cert-link">View Certificate ↗</a>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-top">
+            <div>
+              <div class="cert-id">05 · MICROSOFT</div>
+              <div class="cert-name">Microsoft AI Skills Fest 2026</div>
+              <div class="cert-issuer">AI & Security Fundamentals</div>
+            </div>
+            <span class="verified-stamp">VERIFIED ✓</span>
+          </div>
+          <a href="https://drive.google.com/file/d/1NttaQ1efIMciTuY9OKKtuit0AvVwWbO9/view" target="_blank" rel="noopener" class="cert-link">View Certificate ↗</a>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-top">
+            <div>
+              <div class="cert-id">06 · AWS</div>
+              <div class="cert-name">AWS Foundations: Cloud Essentials</div>
+              <div class="cert-issuer">Cloud Computing Fundamentals</div>
+            </div>
+            <span class="verified-stamp">VERIFIED ✓</span>
+          </div>
+          <a href="https://drive.google.com/file/d/10_1gxtxE3tGySqSGfuv_3cFEqukS7KY8/view" target="_blank" rel="noopener" class="cert-link">View Certificate ↗</a>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-top">
+            <div>
+              <div class="cert-id">07 · IBM SKILLSBUILD</div>
+              <div class="cert-name">Getting Started with Cybersecurity</div>
+              <div class="cert-issuer">Cybersecurity Fundamentals</div>
+            </div>
+            <span class="verified-stamp">VERIFIED ✓</span>
+          </div>
+          <a href="https://drive.google.com/file/d/1lZqX8EKsDSJ_0dvbgOvG7QkBKEjFOPGC/view" target="_blank" rel="noopener" class="cert-link">View Certificate ↗</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <div class="container">
+      <div class="section-head fade-up">
+        <h2 class="section-title">Hackathons & Achievements</h2>
+        <span class="section-file mono">FILE // 08 — COMPETITION LOG</span>
+      </div>
+      <div class="ach-grid fade-up">
+        <div class="ach-card">
+          <div class="ach-name">ADVAYA 2.0</div>
+          <div class="ach-meta">24-Hour National Level Hackathon · BGS College of Engineering and Technology · Apr 2026</div>
+          <div class="ach-desc">Participated in a 24-hour national-level hackathon.</div>
+          <a href="https://drive.google.com/file/d/1Ylcrvut7GOKsjmNDSgSBNWXjEEHh9xOU/view" target="_blank" rel="noopener" class="cert-link" style="margin-top:10px;display:inline-block;">View Proof ↗</a>
+        </div>
+        <div class="ach-card">
+          <div class="ach-name">Cyber Kushti Hackathon</div>
+          <div class="ach-meta">National Financial Literacy Quiz 2026 · NISM & SEBI</div>
+          <div class="ach-desc">Participated in NISM & SEBI's national financial literacy quiz.</div>
+          <a href="https://drive.google.com/file/d/1OHhBZbvAXgsMNWECgSN3vQsVPQWt6P2n/view" target="_blank" rel="noopener" class="cert-link" style="margin-top:10px;display:inline-block;">View Proof ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section id="leadership">
+    <div class="container">
+      <div class="section-head fade-up">
+        <h2 class="section-title">Leadership</h2>
+        <span class="section-file mono">FILE // 09 — COMMUNITY</span>
+      </div>
+      <div class="lead-card fade-up">
+        <div class="lead-top">
+          <div>
+            <div class="lead-role">Secretary, Cyber Samurai Association</div>
+            <div class="lead-org">Guru Nanak Dev Engineering College, Bidar</div>
+          </div>
+          <div class="lead-stat"><span class="num">150+</span><span class="lab">students reached</span></div>
+        </div>
+        <p class="lead-desc">Planned and coordinated <strong style="color:var(--text)">Hacktober</strong>, a cybersecurity awareness event for 150+ students — organizing the program end to end, from content to logistics.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GITHUB -->
+  <section id="github">
+    <div class="container">
+      <div class="section-head fade-up">
+        <h2 class="section-title">GitHub Achievements</h2>
+        <span class="section-file mono">FILE // 10 — CONTRIBUTION LOG</span>
+      </div>
+      <div class="gh-row fade-up">
+        <div class="gh-badge">
+          <div class="gh-icon">🦈</div>
+          <div><div class="gh-name">Pull Shark</div><div class="gh-desc">Merged pull requests</div></div>
+        </div>
+        <div class="gh-badge">
+          <div class="gh-icon">🤝</div>
+          <div><div class="gh-name">Pair Extraordinaire</div><div class="gh-desc">Co-authored commits</div></div>
+        </div>
+        <a href="https://drive.google.com/file/d/1MKMSh1_Thtvij8X_rBdU9K9rI8MfbLT9/view" target="_blank" rel="noopener" class="cert-link">View Proof ↗</a>
+        <a href="https://github.com/Pratikshaprabhakarbande" target="_blank" rel="noopener" class="proj-cta">Visit GitHub Profile ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY ME -->
+  <section id="why">
+    <div class="container">
+      <div class="section-head fade-up">
+        <h2 class="section-title">What I Bring</h2>
+        <span class="section-file mono">FILE // 11 — VALUE</span>
+      </div>
+      <div class="why-grid fade-up">
+        <div class="why-card">
+          <div class="why-idx">/// SECURITY MINDSET</div>
+          <div class="why-title">Thinking in failure modes</div>
+          <div class="why-text">I approach systems by asking how they can fail, be abused, and be strengthened — not just how they're supposed to work.</div>
+        </div>
+        <div class="why-card">
+          <div class="why-idx">/// ENGINEERING MINDSET</div>
+          <div class="why-title">Past the theory</div>
+          <div class="why-text">I enjoy moving from concepts into practical systems, infrastructure and security projects that actually run.</div>
+        </div>
+        <div class="why-card">
+          <div class="why-idx">/// CROSS-DOMAIN THINKING</div>
+          <div class="why-title">Cybersecurity + Cloud + AI + Blockchain + IoT</div>
+          <div class="why-text">My strongest work sits at the intersection of these fields, not inside a single one of them.</div>
+        </div>
+        <div class="why-card">
+          <div class="why-idx">/// CONTINUOUS LEARNING</div>
+          <div class="why-title">Built through repetition</div>
+          <div class="why-text">Internships, certifications, research and hackathons — all feeding back into hands-on project work.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="border-bottom:none;">
+    <div class="container contact-wrap">
+      <div class="fade-up">
+        <div class="eyebrow" style="justify-content:center;">FILE // 12 — CONTACT</div>
+        <h2 class="contact-h">Build something secure.</h2>
+        <p class="contact-sub">Open to cybersecurity internships, technical opportunities, research collaborations and meaningful projects.</p>
+        <div class="contact-grid">
+          <a href="mailto:bandepratiksha8@gmail.com" class="contact-chip">bandepratiksha8@gmail.com</a>
+          <a href="tel:+917204845588" class="contact-chip">+91-7204845588</a>
+          <span class="contact-chip" style="cursor:default;">Bidar, Karnataka, India</span>
+        </div>
+        <div class="social-row" style="justify-content:center;margin-bottom:30px;">
+          <a href="https://www.linkedin.com/in/bandepratiksha28" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://github.com/Pratikshaprabhakarbande" target="_blank" rel="noopener">GitHub ↗</a>
+          <a href="https://tryhackme.com/p/bandepratiksha8" target="_blank" rel="noopener">TryHackMe ↗</a>
+        </div>
+        <a href="./Pratiksha_Bande_Resume.pdf" class="btn-primary" download>Download Résumé ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 PRATIKSHA BANDE // BUILT WITH INTENT, NOT A TEMPLATE</footer>
+</main>
+
+<script>
+  // mobile menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+    menuBtn.textContent = open ? 'CLOSE' : 'MENU';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', false);
+    menuBtn.textContent = 'MENU';
+  }));
+
+  // Explore My Work -> Projects (reliable smooth-scroll fallback)
+  document.getElementById('exploreWorkBtn')?.addEventListener('click', function(e) {
+      const target = document.getElementById('projects');
+      if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+  });
+
+  // scroll reveal
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fadeEls = document.querySelectorAll('.fade-up');
+  if(reduced){
+    fadeEls.forEach(el => el.classList.add('in'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:0.12});
+    fadeEls.forEach(el => io.observe(el));
+  }
+
+  // active rail item on scroll
+  const railItems = document.querySelectorAll('.rail-item');
+  const sections = document.querySelectorAll('main section[id]');
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        railItems.forEach(i => i.classList.remove('active'));
+        const match = document.querySelector(`.rail-item[href="#${entry.target.id}"]`);
+        if(match) match.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-45% 0px -45% 0px'});
+  sections.forEach(s => spy.observe(s));
+</script>
+
+</body>
+</html>
