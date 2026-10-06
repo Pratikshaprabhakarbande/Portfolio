@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pratiksha Bande | Cybersecurity · IoT · Blockchain</title>
+<meta name="description" content="Pratiksha Bande, final-year engineering student in Cybersecurity, IoT and Blockchain Technology. CEH v13 certified. VAPT, cloud security, AI security and blockchain-backed privacy systems.">
+<meta property="og:title" content="Pratiksha Bande | Cybersecurity · IoT · Blockchain">
+<meta property="og:description" content="Final-year engineering student building and exploring secure systems across cybersecurity, cloud, AI security and privacy. CEH v13 certified.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0e1621">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e1621'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='28' text-anchor='middle' fill='%2353c6ea'%3EPB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap" rel="stylesheet">
+
+<script>document.documentElement.classList.add("js")</script>
+<style>
+:root{
+  --bg:#0e1621;
+  --raise:#131e2c;
+  --line:#233349;
+  --text:#e7edf4;
+  --muted:#9aa9bc;
+  --accent:#53c6ea;
+  --blue:#7ea4ff;
+  --amber:#e9b457;
+  --red:#e08174;
+  --ui:'Bricolage Grotesque',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --serif:'Newsreader',Georgia,'Times New Roman',serif;
+  --wrap:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--text);font-family:var(--serif);font-size:1.125rem;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+ul,ol{list-style:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:#04202a;padding:8px 14px;border-radius:6px;font-family:var(--ui);font-weight:600;z-index:100}
+.skip:focus{left:8px}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+section{padding:clamp(72px,10vw,128px) 0}
+h1,h2,h3,h4,dt,.label,.btn,nav,figcaption,.meta{font-family:var(--ui)}
+h2{font-size:clamp(1.9rem,4.2vw,2.9rem);font-weight:600;line-height:1.1;letter-spacing:-.02em;margin-bottom:14px}
+.lede{color:var(--muted);max-width:58ch;font-size:1.1875rem}
+.section-head{margin-bottom:clamp(40px,6vw,72px)}
+.label{font-size:.875rem;font-weight:600;color:var(--muted);letter-spacing:.01em}
+.link{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;font-family:var(--ui);font-weight:500;font-size:.9375rem}
+.link:hover{text-decoration-thickness:2px}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-family:var(--ui);font-weight:700;font-size:1rem;text-decoration:none;letter-spacing:-.01em}
+.nav ul{display:flex;gap:28px}
+.nav a.nl{font-size:.9375rem;color:var(--muted);text-decoration:none;font-weight:500}
+.nav a.nl:hover{color:var(--text)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--text);font:500 .875rem var(--ui);padding:8px 14px;border-radius:8px;cursor:pointer}
+@media(max-width:860px){
+  .menu-btn{display:block}
+  .nav ul{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;gap:0;padding:8px clamp(20px,5vw,48px) 16px}
+  .nav ul.open{display:flex}
+  .nav a.nl{display:block;padding:12px 0;font-size:1.0625rem}
+}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(72px,16vh,160px) 0 clamp(72px,12vh,128px);background:radial-gradient(900px 480px at 85% -10%,rgba(83,198,234,.08),transparent 70%)}
+.hero .who{font-family:var(--ui);font-size:1.0625rem;font-weight:600;margin-bottom:28px}
+.hero .who span{color:var(--muted);font-weight:400}
+.headline{font-family:var(--ui);font-weight:800;text-transform:uppercase;font-size:clamp(2.1rem,7.6vw,6.6rem);line-height:1.02;letter-spacing:-.035em;margin-bottom:clamp(28px,4vw,44px)}
+.headline span{display:block;opacity:0;transform:translateY(26px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+.hero .tag{font-family:var(--ui);font-size:clamp(1.15rem,2.2vw,1.5rem);font-weight:500;margin-bottom:6px}
+.hero .tag-sub{font-family:var(--ui);color:var(--muted);font-size:1rem;margin-bottom:28px}
+.hero .intro{max-width:54ch;color:var(--muted);font-size:1.1875rem;margin-bottom:36px}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:40px}
+.btn{display:inline-block;text-decoration:none;font-weight:600;font-size:1rem;padding:14px 24px;border-radius:8px;border:1px solid var(--line);transition:background .2s,border-color .2s}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#04202a}
+.btn.primary:hover{background:#7ad5f0}
+.btn.ghost:hover{border-color:var(--muted)}
+.socials{display:flex;gap:26px;flex-wrap:wrap}
+.socials a{font-family:var(--ui);font-weight:500;font-size:.9375rem;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px}
+.socials a:hover{color:var(--text);border-color:var(--accent)}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:280px 1fr;gap:clamp(36px,6vw,88px);align-items:start}
+.about-text p{margin-bottom:1.15em;max-width:62ch}
+.facts{margin-top:44px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 40px;border-top:1px solid var(--line);padding-top:30px}
+.facts dt{font-size:.875rem;color:var(--muted);font-weight:500;margin-bottom:2px}
+.facts dd{font-size:1.0625rem;line-height:1.5}
+@media(max-width:860px){
+  .about-grid{grid-template-columns:1fr}
+  .facts{grid-template-columns:1fr}
+}
+
+/* ---------- focus areas ---------- */
+.area-group{margin-bottom:56px}
+.area-group>.label{display:block;margin-bottom:6px}
+.area{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(20px,5vw,72px);padding:30px 0;border-top:1px solid var(--line)}
+.area:last-child{border-bottom:1px solid var(--line)}
+.area h3{font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:600;letter-spacing:-.015em;line-height:1.15}
+.area p{color:var(--muted);max-width:56ch}
+.area p b{color:var(--text);font-weight:500}
+.area.minor h3{font-size:clamp(1.2rem,2vw,1.45rem);font-weight:500}
+@media(max-width:760px){.area{grid-template-columns:1fr;gap:10px}}
+
+/* ---------- flagship projects ---------- */
+.flag{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:center;margin-bottom:clamp(80px,11vw,140px)}
+.flag.rev .flag-visual{order:2}
+.flag-visual figure{background:var(--raise);border:1px solid var(--line);border-radius:14px;padding:clamp(16px,3vw,32px)}
+.flag-visual figcaption{font-size:.8125rem;color:var(--muted);margin-top:14px}
+.flag h3{font-size:clamp(1.6rem,3.2vw,2.35rem);font-weight:700;line-height:1.12;letter-spacing:-.02em;margin:8px 0 26px}
+.meta{font-size:.9375rem;color:var(--muted);font-weight:500}
+.story dt{font-size:.875rem;font-weight:600;color:var(--accent);margin-bottom:4px}
+.story dd{margin-bottom:22px;max-width:58ch}
+.tech{font-family:var(--ui);font-size:.9375rem;color:var(--muted);margin:6px 0 22px;max-width:58ch}
+.tech b{color:var(--text);font-weight:500}
+.stat{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat strong{font-family:var(--ui);font-size:clamp(1.8rem,3.4vw,2.4rem);font-weight:700;letter-spacing:-.02em;color:var(--accent)}
+.stat span{font-family:var(--ui);color:var(--muted);font-size:.9375rem;line-height:1.35}
+@media(max-width:900px){
+  .flag{grid-template-columns:1fr}
+  .flag.rev .flag-visual{order:0}
+}
+
+/* svg styling */
+svg .box{fill:var(--bg);stroke:var(--line);stroke-width:1.5}
+svg .box.red{stroke:var(--red)}
+svg .box.blue{stroke:var(--accent)}
+svg .box.chain{stroke:var(--blue)}
+svg .dash{fill:none;stroke:var(--muted);stroke-width:1.2;stroke-dasharray:5 5;opacity:.55}
+svg .ln{stroke:var(--muted);stroke-width:1.5;fill:none}
+svg .t{fill:var(--text);font:600 15.5px var(--ui);text-anchor:middle}
+svg .s{fill:var(--muted);font:400 13.5px var(--ui);text-anchor:middle}
+svg .s.l{text-anchor:start}
+svg marker path{fill:var(--muted)}
+
+/* gramkavach (team layout) */
+.team{border-top:1px solid var(--line);padding-top:clamp(40px,6vw,64px)}
+.team-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 40px;margin-bottom:36px}
+.team h3{font-size:clamp(1.8rem,3.8vw,2.8rem);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.event{font-family:var(--ui);color:var(--muted);font-size:.9375rem;max-width:42ch;line-height:1.5}
+.event b{color:var(--text);font-weight:600}
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin-bottom:44px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.steps li{padding:20px 18px;background:var(--raise);border-right:1px solid var(--line);font-family:var(--ui)}
+.steps li:last-child{border-right:0}
+.steps b{display:block;font-size:1.0625rem;font-weight:600;margin-bottom:2px}
+.steps span{font-size:.875rem;color:var(--muted);line-height:1.4;display:block}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,5vw,72px)}
+.cols .story dd{max-width:none}
+@media(max-width:900px){
+  .steps{grid-template-columns:1fr 1fr}
+  .steps li{border-bottom:1px solid var(--line)}
+  .cols{grid-template-columns:1fr}
+}
+
+/* ---------- safestack ---------- */
+.building{background:var(--raise);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.status{display:inline-flex;align-items:center;gap:10px;font-family:var(--ui);font-size:.9375rem;font-weight:600;color:var(--amber);border:1px solid rgba(233,180,87,.4);border-radius:6px;padding:6px 14px 6px 12px;margin-bottom:22px}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--amber);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.building h2{margin-bottom:10px}
+.building .what{font-family:var(--ui);color:var(--muted);font-size:1.125rem;margin-bottom:26px}
+.building .pitch{max-width:62ch;font-size:1.25rem;margin-bottom:clamp(40px,6vw,64px)}
+.pipeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-bottom:clamp(40px,6vw,64px);counter-reset:s;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.pipeline li{counter-increment:s;padding:22px 20px 24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-family:var(--ui)}
+.pipeline li::before{content:counter(s);display:block;font-size:.8125rem;color:var(--muted);margin-bottom:12px}
+.pipeline b{display:block;font-size:1.1875rem;font-weight:600;margin-bottom:4px}
+.pipeline span{font-size:.875rem;color:var(--muted);line-height:1.4;display:block}
+.pipeline li:last-child{background:rgba(83,198,234,.07)}
+.pipeline li:last-child b{color:var(--accent)}
+.sg-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,4vw,56px)}
+.sg-cols h4{font-size:1rem;font-weight:600;margin-bottom:14px}
+.sg-cols dl div{margin-bottom:14px}
+.sg-cols dt{font-size:.8125rem;color:var(--muted);font-weight:500}
+.sg-cols dd{font-family:var(--ui);font-size:.9688rem;line-height:1.45}
+.sg-cols ul li{font-size:1rem;line-height:1.5;padding:9px 0;border-bottom:1px solid var(--line)}
+.sg-cols ul li:first-child{padding-top:0}
+.sg-note{margin-top:clamp(36px,5vw,56px);color:var(--muted);font-family:var(--ui);font-size:.9375rem;max-width:70ch}
+@media(max-width:900px){
+  .pipeline{grid-template-columns:1fr 1fr}
+  .sg-cols{grid-template-columns:1fr}
+}
+
+/* ---------- more work ---------- */
+.rows li{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,6fr) 120px 110px;gap:8px 28px;align-items:baseline;padding:20px 0;border-top:1px solid var(--line)}
+.rows li:last-child{border-bottom:1px solid var(--line)}
+.rows h3{font-size:1.125rem;font-weight:600;line-height:1.25}
+.rows p{color:var(--muted);font-size:1.0625rem;line-height:1.5}
+.rows .src{font-family:var(--ui);font-size:.875rem;color:var(--muted)}
+.rows .link{text-align:right}
+@media(max-width:860px){
+  .rows li{grid-template-columns:1fr auto;gap:4px 16px}
+  .rows p{grid-column:1/-1;order:3}
+  .rows .src{grid-column:1;order:2}
+  .rows .link{grid-column:2;grid-row:1;order:1}
+}
+
+/* ---------- experience ---------- */
+.job{display:grid;grid-template-columns:200px minmax(0,1fr);gap:clamp(16px,5vw,64px);padding:36px 0;border-top:1px solid var(--line)}
+.job:last-child{border-bottom:1px solid var(--line)}
+.job .when{font-family:var(--ui);color:var(--muted);font-size:.9688rem;font-weight:500}
+.job h3{font-size:1.5rem;font-weight:600;letter-spacing:-.01em;line-height:1.2}
+.job .role{font-family:var(--ui);color:var(--muted);margin:2px 0 14px;font-size:1rem}
+.job ul{margin-bottom:16px;max-width:62ch}
+.job li{padding-left:18px;position:relative;margin-bottom:6px}
+.job li::before{content:"";position:absolute;left:0;top:.8em;width:7px;height:1px;background:var(--accent)}
+.job .tasks{font-family:var(--ui);font-size:.9375rem;color:var(--muted)}
+.job .tasks a{color:var(--text);text-decoration-color:var(--line);text-underline-offset:4px;margin-right:4px}
+.job .tasks a:hover{text-decoration-color:var(--accent)}
+.job .tasks span{display:block;margin-bottom:4px}
+.job .repo{margin-top:12px;display:inline-block}
+@media(max-width:760px){.job{grid-template-columns:1fr;gap:6px}}
+
+/* ---------- toolkit ---------- */
+.kit{border-top:1px solid var(--line)}
+.kit>div{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:clamp(12px,4vw,56px);padding:26px 0;border-bottom:1px solid var(--line)}
+.kit h3{font-size:1.0625rem;font-weight:600}
+.kit p{font-size:1.125rem;line-height:1.7;max-width:70ch;color:var(--muted)}
+.kit p b{color:var(--text);font-weight:500}
+@media(max-width:760px){.kit>div{grid-template-columns:1fr}}
+
+/* ---------- credentials ---------- */
+.cred-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(40px,7vw,96px);align-items:start}
+.certs li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 20px;padding:18px 0;border-top:1px solid var(--line);align-items:baseline}
+.certs li:last-child{border-bottom:1px solid var(--line)}
+.certs h3{font-size:1.0625rem;font-weight:600;line-height:1.3}
+.certs li.lead h3{font-size:1.4rem;font-weight:700}
+.certs p{grid-column:1;font-family:var(--ui);font-size:.9375rem;color:var(--muted)}
+.certs .link{grid-column:2;grid-row:1}
+.pub{border:1px solid var(--line);border-radius:10px;padding:28px;background:var(--raise)}
+.pub h3{font-size:1.3rem;font-weight:600;line-height:1.3;margin:6px 0 12px}
+.pub p{color:var(--muted);font-size:1.0625rem;margin-bottom:16px}
+@media(max-width:900px){.cred-grid{grid-template-columns:1fr}}
+
+/* ---------- beyond ---------- */
+.beyond li{display:grid;grid-template-columns:200px minmax(0,1fr) auto;gap:6px clamp(16px,4vw,48px);padding:22px 0;border-top:1px solid var(--line);align-items:baseline}
+.beyond li:last-child{border-bottom:1px solid var(--line)}
+.beyond .when{font-family:var(--ui);color:var(--muted);font-size:.9375rem}
+.beyond h3{font-size:1.125rem;font-weight:600;line-height:1.3}
+.beyond p{color:var(--muted);font-size:1.0625rem;line-height:1.5;margin-top:2px}
+@media(max-width:760px){.beyond li{grid-template-columns:1fr}}
+
+/* ---------- contact ---------- */
+.contact{border-top:1px solid var(--line);}
+.contact h2{font-size:clamp(2.2rem,6vw,4.2rem);font-weight:800;letter-spacing:-.03em;margin-bottom:22px}
+.contact p.lede{margin-bottom:36px}
+.contact-list{margin-bottom:34px;font-family:var(--ui);font-size:1.125rem}
+.contact-list div{padding:3px 0}
+.contact-list a{text-decoration:none;border-bottom:1px solid var(--line)}
+.contact-list a:hover{border-color:var(--accent)}
+footer{border-top:1px solid var(--line);padding:28px 0;font-family:var(--ui);font-size:.875rem;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 24px}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .headline span{animation:none;opacity:1;transform:none}
+  .status i{animation:none}
+}
+
+/* ================= v2 refinements ================= */
+.ac{font-style:normal;color:var(--accent)}
+.kw{color:var(--accent);font-style:italic}
+.x{font-style:normal;color:var(--accent);padding:0 .12em}
+
+/* links: animated underline + arrow */
+.link{text-decoration:none;padding-bottom:3px;background:linear-gradient(var(--accent),var(--accent)) 0 100%/0 1px no-repeat,linear-gradient(rgba(83,198,234,.3),rgba(83,198,234,.3)) 0 100%/100% 1px no-repeat;transition:background-size .3s ease}
+.link:hover{background-size:100% 1px,100% 1px}
+.link::after{content:"\2192";display:inline-block;margin-left:7px;transition:transform .25s ease}
+.link:hover::after{transform:translateX(4px)}
+.link:hover{text-decoration:none}
+
+.rows .link::after,.certs .link::after,.beyond .link::after{display:none}
+
+/* nav */
+.nav a.nl{position:relative}
+.nav a.nl::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.nav a.nl.active{color:var(--text)}
+.nav a.nl.active::after{transform:scaleX(1)}
+@keyframes drop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@media(max-width:860px){
+  .nav a.nl::after{display:none}
+  .nav a.nl.active{color:var(--accent)}
+  .nav ul{border-radius:0 0 14px 14px;box-shadow:0 24px 40px -20px rgba(0,0,0,.6)}
+  .nav ul.open{animation:drop .22s ease}
+  .nav li+li a.nl{border-top:1px solid var(--line)}
+}
+
+/* hero */
+.hero{min-height:calc(100svh - 64px);display:flex;align-items:center;background:linear-gradient(180deg,rgba(83,198,234,.05),transparent 55%)}
+.hero .wrap{width:100%}
+.hr{opacity:0;transform:translateY(16px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:var(--d,0s)}
+.headline span{animation-delay:var(--d,0s);white-space:nowrap}
+.hero .who{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;font-size:1.0625rem}
+.hero .who b{font-weight:700;letter-spacing:-.01em}
+.hero .who span{color:var(--muted);font-weight:400;display:inline-flex;align-items:center;gap:16px}
+.hero .who span::before{content:"";width:28px;height:1px;background:var(--accent)}
+.headline em{font-style:normal;color:var(--accent);position:relative;display:inline-block}
+.headline em.g{color:transparent;background:linear-gradient(95deg,var(--accent) 10%,var(--blue) 95%);-webkit-background-clip:text;background-clip:text;animation:none}
+.headline em::after{content:"";position:absolute;left:0;right:0;bottom:-.04em;height:.04em;background:linear-gradient(90deg,var(--accent),var(--blue));transform:scaleX(0);transform-origin:left;animation:draw .9s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:var(--e,1.2s)}
+@keyframes draw{to{transform:scaleX(1)}}
+
+.hero .tag{font-size:clamp(1.15rem,2.2vw,1.5rem);font-weight:600}
+.hero .tag-sub{color:var(--muted)}
+
+/* buttons */
+.btn{transition:transform .2s ease,background .2s ease,border-color .2s ease,box-shadow .25s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost:hover{border-color:var(--accent)}
+.socials a{transition:color .2s,border-color .2s}
+
+/* about: natural, unzoomed rectangular portrait */
+.about-grid{grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:start}
+.photo{padding:1px;border-radius:10px;background:linear-gradient(135deg,rgba(83,198,234,.65),rgba(126,164,255,.18) 45%,var(--line));}
+.photo img{width:100%;height:auto;border-radius:9px;display:block}
+.about-side .facts{margin-top:30px;grid-template-columns:1fr;gap:18px;padding-top:26px}
+.about-text h2{margin-bottom:22px}
+@media(max-width:860px){.about-grid{grid-template-columns:1fr}}
+
+/* focus areas */
+.area h3,.area p{transition:transform .3s ease,color .3s ease}
+.area:hover h3{transform:translateX(8px);color:var(--accent)}
+.label.core{color:var(--accent)}
+.area-group:nth-of-type(2) .area p{color:#b4c1d1}
+.area-group:nth-of-type(2) .area h3{font-weight:700}
+
+/* diagram frame */
+.flag-visual figure{border-radius:10px;background:var(--raise);box-shadow:inset 0 1px 0 rgba(83,198,234,.28)}
+svg .head{fill:var(--muted)}
+svg .box{transition:stroke .25s ease}
+.dot{fill:var(--accent);opacity:0;transition:opacity .6s ease}
+.dot.on{opacity:1}
+.js .diagram .node{opacity:0;transform:translateY(8px);transition:opacity .6s ease,transform .6s ease;transition-delay:calc(var(--i,0)*.32s)}
+.js .diagram .edge{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .5s ease;transition-delay:calc(var(--i,0)*.32s)}
+.js .diagram .head{opacity:0;transition:opacity .25s ease;transition-delay:calc(var(--i,0)*.32s + .45s)}
+.js .diagram.in .node{opacity:1;transform:none}
+.js .diagram.in .edge{stroke-dashoffset:0}
+.js .diagram.in .head{opacity:1}
+@keyframes flash{45%{stroke:#8fe0f5}}
+.js .diagram.in .node.hl .box{animation:flash 1.5s ease-in-out var(--h,3s) 1}
+.js .diagram.done .node,.js .diagram.done .head{transition:opacity .3s ease,transform .25s ease;transition-delay:0s}
+.js .diagram.done .edge{transition-delay:0s}
+.js .diagram.done .node:hover{transform:translateY(-2px)}
+.js .diagram.done .node:hover .box{stroke:var(--accent)}
+.js .diagram.done .node:hover .box.red{stroke:#f3a89d}
+
+/* sequential steps (gramkavach, safestack) */
+.js .steps li,.js .pipeline li{opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease;transition-delay:calc(var(--i,0)*.14s)}
+.js .steps.in li,.js .pipeline.in li{opacity:1;transform:none}
+.steps li b{transition:color .3s}
+.js .steps.in li b{animation:stepflash 1s ease both;animation-delay:calc(var(--i,0)*.35s + .5s)}
+@keyframes stepflash{40%{color:var(--accent)}}
+.steps li,.pipeline li{transition:background .25s ease}
+
+/* scroll reveal */
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.js .rv.in{opacity:1;transform:none}
+
+/* rows */
+.rows li h3{transition:color .25s ease}
+.rows li:hover h3{color:var(--accent)}
+
+/* achievements timeline */
+.beyond{position:relative;margin-left:5px;border-left:1px solid var(--line)}
+.beyond li{border:0;padding:22px 0 22px clamp(22px,4vw,44px);position:relative;grid-template-columns:170px minmax(0,1fr) auto}
+.beyond li:last-child{border:0}
+.beyond li::before{content:"";position:absolute;left:-5px;top:33px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1px solid var(--accent)}
+.beyond li:first-child::before{background:var(--accent)}
+.beyond li:first-child h3{font-size:1.5rem;font-weight:700;letter-spacing:-.01em}
+@media(max-width:760px){.beyond li{grid-template-columns:1fr}}
+
+/* contact */
+.contact h2{font-size:clamp(2.6rem,9.4vw,8rem);font-weight:800;text-transform:uppercase;line-height:.93;letter-spacing:-.035em;margin-bottom:28px}
+.contact-links{margin:8px 0 40px;max-width:820px}
+.contact-links li{display:grid;grid-template-columns:140px minmax(0,1fr);gap:8px 20px;align-items:baseline;padding:16px 0;border-top:1px solid var(--line)}
+.contact-links li:last-child{border-bottom:1px solid var(--line)}
+.contact-links span{font-family:var(--ui);font-size:.9375rem;color:var(--muted)}
+.contact-links a{font-family:var(--ui);font-weight:500;font-size:clamp(1.05rem,2.4vw,1.6rem);text-decoration:none;overflow-wrap:anywhere;transition:color .2s ease,padding-left .25s ease}
+.contact-links a:hover{color:var(--accent)}
+.contact .phone{margin-top:28px;font-family:var(--ui);color:var(--muted);font-size:.9375rem}
+.contact .phone a{color:var(--text);text-decoration:none;border-bottom:1px solid var(--line)}
+@media(max-width:600px){.contact-links li{grid-template-columns:1fr}}
+
+@media(prefers-reduced-motion:reduce){
+  .hr{animation:none;opacity:1;transform:none}
+    .headline em::after{animation:none;transform:none}
+  .js .rv,.js .steps li,.js .pipeline li,.js .diagram .node,.js .diagram .edge,.js .diagram .head{transition:none!important;animation:none!important}
+  .js .steps.in li b,.js .diagram.in .node.hl .box{animation:none!important}
+  .dot{display:none}
+}
+</style>
+</head>
+
+<body>
+<a class="skip" href="#about">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Pratiksha Bande</a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <ul id="menu">
+      <li><a class="nl" href="#about">About</a></li>
+      <li><a class="nl" href="#work">Work</a></li>
+      <li><a class="nl" href="#building">Building</a></li>
+      <li><a class="nl" href="#experience">Experience</a></li>
+      <li><a class="nl" href="#toolkit">Toolkit</a></li>
+      <li><a class="nl" href="#credentials">Credentials</a></li>
+      <li><a class="nl" href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<section class="hero" style="padding-bottom:clamp(72px,12vh,128px)">
+  <div class="wrap">
+    <p class="who hr" style="--d:.05s"><b>Pratiksha Bande</b><span>Final-year engineering student</span></p>
+    <h1 class="headline"><span style="--d:.25s">Security starts</span><span style="--d:.4s">with <em style="--e:1.25s">how</em></span><span style="--d:.55s"><em class="g" style="--e:1.5s">you think.</em></span></h1>
+    <p class="tag hr" style="--d:1.05s">Cybersecurity <i class="x">×</i> IoT <i class="x">×</i> Blockchain Technology</p>
+    <p class="tag-sub hr" style="--d:1.15s">Full-Stack <i class="x">×</i> Cloud Security <i class="x">×</i> AI Security <i class="x">×</i> DevSecOps</p>
+    <p class="intro hr" style="--d:1.3s">I build and explore secure systems across cybersecurity, cloud, AI security and privacy.</p>
+    <div class="cta hr" style="--d:1.45s">
+      <a class="btn primary" href="#work">Explore My Work</a>
+      <a class="btn ghost" href="Pratiksha_Bande_Resume.pdf">Download Résumé</a>
+    </div>
+    <div class="socials hr" style="--d:1.65s">
+      <a href="https://www.linkedin.com/in/bandepratiksha28" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/Pratikshaprabhakarbande" rel="noopener">GitHub</a>
+      <a href="https://tryhackme.com/p/bandepratiksha8" rel="noopener">TryHackMe</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" style="padding-top:0">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-side">
+        <figure class="photo"><img src="Pratiksha_Bande_Profile.jpg" alt="Portrait of Pratiksha Bande" width="1159" height="940" decoding="async"></figure>
+        <dl class="facts">
+          <div><dt>Studying</dt><dd>B.E. in C.S.E., IoT and Cyber Security including Blockchain Technology</dd></div>
+          <div><dt>College</dt><dd>Guru Nanak Dev Engineering College, Bidar (VTU), 2023 – 2027</dd></div>
+          <div><dt>Academics</dt><dd>CGPA 8.08 / 10, First Class with Distinction. 8.89 SGPA in 6th semester.</dd></div>
+          <div><dt>Based in</dt><dd>Bidar, Karnataka, India</dd></div>
+          <div><dt>Status</dt><dd>Final year, open to internships</dd></div>
+        </dl>
+      </div>
+      <div class="about-text">
+        <h2>About</h2>
+        <p>I'm a final-year engineering student at Guru Nanak Dev Engineering College in Bidar, studying C.S.E. with IoT and Cyber Security including Blockchain Technology.</p>
+        <p>Security is the thread through all of it. I'm CEH v13 certified, comfortable in Kali Linux, Burp Suite, Nmap, Wireshark and Zeek, and across three internships I've worked on vulnerability assessment, network monitoring, log analysis and static code analysis. Alongside that I build my own projects: red-teaming machine learning models, automating infrastructure across clouds, and designing a blockchain-backed privacy system for healthcare data. I can also build the applications and APIs I'm securing, with React and TypeScript on the front end and Flask or Node.js with MongoDB behind it, which makes it easier to see where a system can go wrong.</p>
+        <p>I tend to think about <span class="kw">how a system could be misused</span> before I think about how it's supposed to work. That habit shapes what I build, and it's why I'm drawn to the places where security meets other fields: connected devices, distributed ledgers and AI.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT I WORK ON ================= -->
+<section id="focus" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What I <em class="ac">work on</em></h2>
+      <p class="lede">Security is the common thread. Some areas are central to my degree; others are where I apply it.</p>
+    </div>
+
+    <div class="area-group">
+      <span class="label core">At the core</span>
+      <div class="area">
+        <h3>Offensive security</h3>
+        <p>Finding weaknesses before someone else does. <b>VAPT, ethical hacking, vulnerability assessment, threat modelling</b>, web and network security, with Kali Linux, Burp Suite, Nmap and Metasploit.</p>
+      </div>
+      <div class="area">
+        <h3>Defensive and network security</h3>
+        <p>Intrusion detection, traffic analysis, monitoring, log analysis and threat detection, using <b>Wireshark and Zeek</b>, with foundational Splunk.</p>
+      </div>
+      <div class="area">
+        <h3>IoT and connected systems</h3>
+        <p>Part of my degree, and part of how I think about attack surface. I look at connected devices through the network layer they all depend on: traffic analysis, intrusion detection, and my <b>published research on ARP poisoning prevention</b>.</p>
+      </div>
+      <div class="area">
+        <h3>Blockchain and data privacy</h3>
+        <p><b>Ethereum, smart contracts, Web3.py</b>, DPDP Act 2023 compliance and secure healthcare systems.</p>
+      </div>
+    </div>
+
+    <div class="area-group" style="margin-bottom:0">
+      <span class="label">Where I apply it</span>
+      <div class="area minor">
+        <h3>AI and ML security</h3>
+        <p>Adversarial ML with <b>FGSM and PGD</b>, prompt injection, LLM security and AI-based phishing detection. Certified as an LLM Security Expert (CLLMSE).</p>
+      </div>
+      <div class="area minor">
+        <h3>Cloud and DevSecOps</h3>
+        <p><b>AWS, OCI, Terraform and Docker.</b> Infrastructure as code and deployment automation, so environments are consistent and repeatable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FLAGSHIP PROJECTS ================= -->
+<section id="work" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Selected <em class="ac">work</em></h2>
+      <p class="lede">Four projects I'm most proud of. More of my practical work follows further down.</p>
+    </div>
+
+    <!-- 1 Adversarial -->
+    <article class="flag">
+      <div class="flag-visual">
+        <figure>
+          <svg class="diagram" viewBox="0 0 560 320" role="img" aria-label="Red team runs FGSM and PGD attacks at configurable strength against a PyTorch model. Blue team defends with adversarial training, denoising and randomized smoothing. Results are benchmarked as attack success versus defence effectiveness.">
+            <g class="node" style="--i:0"><rect class="box red" x="8" y="30" width="160" height="130" rx="10"/><text class="t" x="88" y="58">Red team</text><text class="s" x="88" y="86">FGSM</text><text class="s" x="88" y="106">PGD</text><text class="s" x="88" y="136">Configurable strength</text></g>
+            <path class="edge ln" pathLength="1" style="--i:1" d="M170 95H197"/><polygon class="head" style="--i:1" points="196,91.5 203,95 196,98.5"/>
+            <g class="node hl" style="--i:2;--h:2.9s"><rect class="box" x="205" y="62" width="150" height="66" rx="10"/><text class="t" x="280" y="92">Target model</text><text class="s" x="280" y="112">PyTorch</text></g>
+            <g class="node" style="--i:3"><rect class="box blue" x="392" y="30" width="160" height="130" rx="10"/><text class="t" x="472" y="58">Blue team</text><text class="s" x="472" y="86">Adversarial training</text><text class="s" x="472" y="106">Denoising</text><text class="s" x="472" y="126">Randomized smoothing</text></g>
+            <path class="edge ln" pathLength="1" style="--i:4" d="M390 95H364"/><polygon class="head" style="--i:4" points="364,91.5 357,95 364,98.5"/>
+            <path class="edge ln" pathLength="1" style="--i:5" d="M280 130V206"/><polygon class="head" style="--i:5" points="276.5,206 280,213 283.5,206"/>
+            <g class="node hl" style="--i:6;--h:3.5s"><rect class="box" x="110" y="215" width="340" height="76" rx="10"/><text class="t" x="280" y="248">Benchmark</text><text class="s" x="280" y="271">Attack success vs defence effectiveness</text></g>
+          </svg>
+          <figcaption>Architecture sketch</figcaption>
+        </figure>
+      </div>
+      <div class="flag-body">
+        <p class="meta">AI security, independent project</p>
+        <h3>Adversarial AI Attack and Defence Simulator</h3>
+        <dl class="story">
+          <dt>Why I built it</dt>
+          <dd>Claims about model robustness mean little until you attack the model yourself and measure how its defences hold up.</dd>
+          <dt>What I built</dt>
+          <dd>A PyTorch simulator organised as a Red Team vs. Blue Team framework. The red side runs FGSM and PGD attacks with configurable strength. The blue side defends with adversarial training, denoising and randomized smoothing.</dd>
+          <dt>What I explored</dt>
+          <dd>Robustness isn't a fixed property. I benchmarked attack success against defence effectiveness to compare how well each defence holds against the attacks.</dd>
+        </dl>
+        <p class="tech"><b>Built with</b> Python, PyTorch, FGSM, PGD, adversarial training, denoising, randomized smoothing</p>
+        <a class="link" href="https://github.com/Pratikshaprabhakarbande/Adversarial-AI-Attack-vs-Defense-Simulator" rel="noopener">View on GitHub</a>
+      </div>
+    </article>
+
+    <!-- 2 DPDP -->
+    <article class="flag rev">
+      <div class="flag-visual">
+        <figure>
+          <svg class="diagram" viewBox="0 0 560 350" role="img" aria-label="Patient, Doctor and Admin dashboards built in React and TypeScript talk to a Flask API secured with JWT and AES-256, backed by MongoDB, all inside Docker. The API also records consent verification and immutable audit trails on Ethereum via Web3.py, with Chameleon Hash redaction.">
+            <g class="node" style="--i:0"><rect class="dash" x="8" y="8" width="332" height="334" rx="14"/><text class="s l" x="24" y="30">Docker</text></g>
+            <g class="node" style="--i:1"><rect class="box" x="20" y="44" width="92" height="44" rx="8"/><text class="t" x="66" y="72">Patient</text></g>
+            <g class="node" style="--i:1"><rect class="box" x="122" y="44" width="92" height="44" rx="8"/><text class="t" x="168" y="72">Doctor</text></g>
+            <g class="node" style="--i:1"><rect class="box" x="224" y="44" width="92" height="44" rx="8"/><text class="t" x="270" y="72">Admin</text></g>
+            <g class="node" style="--i:1"><text class="s" x="168" y="108">React + TypeScript dashboards</text></g>
+            <path class="edge ln" pathLength="1" style="--i:2" d="M66 116V130"/><polygon class="head" style="--i:2" points="62.5,130 66,137 69.5,130"/>
+            <path class="edge ln" pathLength="1" style="--i:2" d="M168 116V130"/><polygon class="head" style="--i:2" points="164.5,130 168,137 171.5,130"/>
+            <path class="edge ln" pathLength="1" style="--i:2" d="M270 116V130"/><polygon class="head" style="--i:2" points="266.5,130 270,137 273.5,130"/>
+            <g class="node hl" style="--i:3;--h:3.0s"><rect class="box" x="20" y="140" width="296" height="64" rx="10"/><text class="t" x="168" y="168">Flask API</text><text class="s" x="168" y="189">JWT authentication, AES-256 encryption</text></g>
+            <path class="edge ln" pathLength="1" style="--i:4" d="M168 206V236"/><polygon class="head" style="--i:4" points="164.5,236 168,243 171.5,236"/>
+            <path class="edge ln" pathLength="1" style="--i:4" d="M318 172H369"/><polygon class="head" style="--i:4" points="369,168.5 376,172 369,175.5"/>
+            <g class="node" style="--i:5"><rect class="box" x="20" y="246" width="296" height="52" rx="10"/><text class="t" x="168" y="278">MongoDB</text></g>
+            <g class="node hl" style="--i:5;--h:3.6s"><rect class="box chain" x="378" y="108" width="174" height="130" rx="10"/><text class="t" x="465" y="136">Ethereum (Ganache)</text><text class="s" x="465" y="156">via Web3.py</text><text class="s" x="465" y="182">Consent verification</text><text class="s" x="465" y="201">Immutable audit trail</text><text class="s" x="465" y="220">Chameleon Hash redaction</text></g>
+            <g class="node" style="--i:6"><text class="s" x="465" y="266">Supports Right to Correction</text><text class="s" x="465" y="284">and Right to Erasure</text></g>
+          </svg>
+          <figcaption>Architecture sketch</figcaption>
+        </figure>
+      </div>
+      <div class="flag-body">
+        <p class="meta">Blockchain, privacy and healthcare, independent project, 2026 – present</p>
+        <h3>DPDP Act 2023 Compliance and Data Privacy Protection System</h3>
+        <dl class="story">
+          <dt>Why I built it</dt>
+          <dd>India's DPDP Act 2023 puts consent and data-subject rights at the centre of how personal data is handled. I wanted to see what that looks like when it's built into a healthcare system itself.</dd>
+          <dt>What I built</dt>
+          <dd>A full-stack, Docker-containerized platform: React and TypeScript dashboards for Patient, Doctor and Admin roles, with a Flask API and MongoDB behind them, secured with JWT authentication and AES-256 encryption.</dd>
+          <dt>What I explored</dt>
+          <dd>A blockchain is meant to be unchangeable, which collides with correction and erasure. I used Chameleon Hash redaction on an Ethereum (Ganache) ledger, through Web3.py, so consent verification and audit trails stay immutable while still supporting Right to Correction, Right to Erasure and compliance monitoring.</dd>
+        </dl>
+        <p class="tech"><b>Built with</b> React, TypeScript, Flask, MongoDB, Docker, JWT, AES-256, Ethereum, Ganache, Web3.py. A compliance-oriented prototype, not a certified compliance product.</p>
+        <a class="link" href="https://github.com/Pratikshaprabhakarbande/dpdp-blockchain-healthcare-management" rel="noopener">View on GitHub</a>
+      </div>
+    </article>
+
+    <!-- 3 Multi-cloud -->
+    <article class="flag">
+      <div class="flag-visual">
+        <figure>
+          <svg class="diagram" viewBox="0 0 560 300" role="img" aria-label="One Terraform configuration provisions several cloud environments, each running Docker-containerized applications.">
+            <g class="node hl" style="--i:0;--h:3.2s"><rect class="box blue" x="8" y="100" width="160" height="100" rx="10"/><text class="t" x="88" y="145">Terraform</text><text class="s" x="88" y="167">Infrastructure as code</text></g>
+            <path class="edge ln" pathLength="1" style="--i:1" d="M170 150C235 150 235 52 291 52"/><polygon class="head" style="--i:1" points="291,48.5 298,52 291,55.5"/>
+            <path class="edge ln" pathLength="1" style="--i:1.5" d="M170 150H291"/><polygon class="head" style="--i:1.5" points="291,146.5 298,150 291,153.5"/>
+            <path class="edge ln" pathLength="1" style="--i:2" d="M170 150C235 150 235 248 291 248"/><polygon class="head" style="--i:2" points="291,244.5 298,248 291,251.5"/>
+            <g class="node" style="--i:2"><rect class="box" x="300" y="20" width="252" height="64" rx="10"/><text class="t" x="426" y="49">Cloud environment</text><text class="s" x="426" y="69">Containerized with Docker</text></g>
+            <g class="node" style="--i:2.5"><rect class="box" x="300" y="118" width="252" height="64" rx="10"/><text class="t" x="426" y="147">Cloud environment</text><text class="s" x="426" y="167">Containerized with Docker</text></g>
+            <g class="node" style="--i:3"><rect class="box" x="300" y="216" width="252" height="64" rx="10"/><text class="t" x="426" y="245">Cloud environment</text><text class="s" x="426" y="265">Containerized with Docker</text></g>
+            <circle class="dot" r="3"><animateMotion dur="2.8s" repeatCount="2" begin="indefinite" path="M170 150C235 150 235 52 298 52"/></circle>
+            <circle class="dot" r="3"><animateMotion dur="2.8s" repeatCount="2" begin="indefinite" path="M170 150H298"/></circle>
+            <circle class="dot" r="3"><animateMotion dur="2.8s" repeatCount="2" begin="indefinite" path="M170 150C235 150 235 248 298 248"/></circle>
+          </svg>
+          <figcaption>Architecture sketch</figcaption>
+        </figure>
+      </div>
+      <div class="flag-body">
+        <p class="meta">Cloud and DevSecOps, independent project, since March 2026</p>
+        <h3>AI-Powered Multi-Cloud Portability and Deployment Automation Platform</h3>
+        <dl class="story">
+          <dt>Why I built it</dt>
+          <dd>Setting up the same infrastructure by hand in every environment is slow, and small differences between environments are a common source of cloud misconfiguration.</dd>
+          <dt>What I built</dt>
+          <dd>Scalable multi-cloud infrastructure defined in Terraform, with application environments containerized in Docker so the same deployment behaves consistently everywhere it runs.</dd>
+        </dl>
+        <div class="stat"><strong>~35–40%</strong><span>approximate reduction in manual<br>provisioning effort</span></div>
+        <p class="tech"><b>Built with</b> Terraform, Docker, multi-cloud infrastructure</p>
+        <a class="link" href="https://github.com/Pratikshaprabhakarbande/AI-Powered-Multi-Cloud-Portability-and-Deployment-Automation-Platform" rel="noopener">View on GitHub</a>
+      </div>
+    </article>
+
+    <!-- 4 GramKavach -->
+    <article class="team">
+      <div class="team-head">
+        <div>
+          <p class="meta">Team project, cybersecurity and blockchain hackathon</p>
+          <h3>GramKavach</h3>
+        </div>
+        <p class="event"><b>ADVAYA 2.0</b>, a 24-hour national hackathon at BGS College of Engineering and Technology, Bengaluru. 1 – 2 April 2026.</p>
+      </div>
+
+      <ol class="steps" aria-label="GramKavach alert workflow">
+        <li><b>Detect</b><span>Suspicious activity enters the workflow</span></li>
+        <li><b>Alert</b><span>An alert is generated for the user</span></li>
+        <li><b>Verify</b><span>The user confirms or flags it</span></li>
+        <li><b>Escalate</b><span>Suspicious or unresolved cases move up</span></li>
+        <li><b>Respond</b><span>The right response can be started</span></li>
+      </ol>
+
+      <div class="cols">
+        <dl class="story">
+          <dt>The problem</dt>
+          <dd>Many security tools assume reliable connectivity, strong digital literacy and quick access to help. Rural and digitally vulnerable users often have none of the three, which leaves them more exposed to fraud and unauthorised account activity. Our idea was that security should reach the user, rather than depend on the user reaching it.</dd>
+        </dl>
+        <dl class="story">
+          <dt>What our team built</dt>
+          <dd>A prototype alert-and-verification layer between suspicious financial activity and the people who need to respond to it: alerts, user verification, escalation, an SMS-oriented notification workflow, and offline-first considerations for low-connectivity areas. The front end is React, TypeScript and Vite. The back end is Supabase/PostgreSQL, with Row Level Security for database-level access control.</dd>
+          <dt>Where it stands</dt>
+          <dd>A hackathon proof of concept, not a production banking system, and the repository says so too. Risk scoring and blockchain-backed audit trails are on its roadmap, not shipped.</dd>
+        </dl>
+      </div>
+      <p class="tech" style="margin-top:8px"><b>Built with</b> React, TypeScript, Vite, Supabase, PostgreSQL, Row Level Security</p>
+      <a class="link" href="https://github.com/Pratikshaprabhakarbande/GramKavach" rel="noopener">View on GitHub</a>
+    </article>
+  </div>
+</section>
+
+<!-- ================= CURRENTLY BUILDING ================= -->
+<section id="building" class="building">
+  <div class="wrap">
+    <span class="status"><i aria-hidden="true"></i>In progress</span>
+    <h2>Currently <em class="ac">building</em>: SafeStack</h2>
+    <p class="what">An AI-powered software supply-chain defence platform.</p>
+    <p class="pitch">SafeStack scans a project's dependencies for known vulnerabilities, explains what it found, proposes a fix, tests that fix in isolation and opens a pull request. It never edits your main branch. You decide whether the change goes in.</p>
+
+    <ol class="pipeline" aria-label="SafeStack workflow">
+      <li><b>Detect</b><span>npm audit, OSV API</span></li>
+      <li><b>Explain</b><span>Google Gemini</span></li>
+      <li><b>Recommend</b><span>A suggested fix</span></li>
+      <li><b>Safe fix</b><span>On an isolated SafeStack branch</span></li>
+      <li><b>Test</b><span>In a Docker sandbox</span></li>
+      <li><b>Re-test</b><span>Confirm the fix holds</span></li>
+      <li><b>Create PR</b><span>GitHub App, scoped tokens</span></li>
+      <li><b>User decides</b><span>You review and merge</span></li>
+    </ol>
+
+    <div class="sg-cols">
+      <div>
+        <h4>Design principles</h4>
+        <ul>
+          <li>No direct changes to main or master</li>
+          <li>Isolated SafeStack branches for every fix</li>
+          <li>Untrusted code runs in Docker isolation</li>
+          <li>No stored user tokens</li>
+          <li>Scoped GitHub permissions</li>
+          <li>JWT authentication</li>
+          <li>Polling instead of WebSockets</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Planned architecture</h4>
+        <dl>
+          <div><dt>Frontend</dt><dd>React 18, TypeScript, Vite, TailwindCSS</dd></div>
+          <div><dt>Backend</dt><dd>Node.js, TypeScript, Express, MongoDB, Mongoose</dd></div>
+          <div><dt>Isolation</dt><dd>Docker for untrusted code</dd></div>
+          <div><dt>AI</dt><dd>Google Gemini</dd></div>
+          <div><dt>GitHub</dt><dd>GitHub App with scoped installation tokens</dd></div>
+          <div><dt>Scanning</dt><dd>npm audit and the OSV API</dd></div>
+        </dl>
+      </div>
+      <div>
+        <h4>Data model</h4>
+        <ul>
+          <li>User</li>
+          <li>Project</li>
+          <li>Scan</li>
+          <li>Vulnerability</li>
+          <li>Fix</li>
+          <li>TestResult</li>
+          <li>PullRequest</li>
+        </ul>
+      </div>
+    </div>
+    <p class="sg-note">SafeStack is under active development. This is the architecture and the principles I'm building toward, not a finished product.</p>
+  </div>
+</section>
+
+<!-- ================= MORE WORK ================= -->
+<section id="more">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>More <em class="ac">security</em> work</h2>
+      <p class="lede">Smaller builds and internship tasks, each with its own repository.</p>
+    </div>
+    <ul class="rows">
+      <li><h3>Network Intrusion Detection</h3><p>Network monitoring that analyses traffic patterns and flags anomalies.</p><span class="src">CodeAlpha</span><a class="link" href="https://github.com/Pratikshaprabhakarbande/CodeAlpha-Network-Intrusion-Detection" rel="noopener">GitHub</a></li>
+      <li><h3>Network Traffic Analysis Toolkit</h3><p>Capture and analyse network traffic for security monitoring and threat detection.</p><span class="src">Independent</span><a class="link" href="https://github.com/Pratikshaprabhakarbande/Network-Traffic-Analysis-Toolkit" rel="noopener">GitHub</a></li>
+      <li><h3>Vulnerability Assessment and Threat Modeling</h3><p>A vulnerability scanner for assessing systems and modelling threats.</p><span class="src">Thiranex</span><a class="link" href="https://github.com/Pratikshaprabhakarbande/Thiranextask2" rel="noopener">GitHub</a></li>
+      <li><h3>AI-Powered Phishing Email Detection</h3><p>A machine-learning model that classifies emails as phishing or legitimate.</p><span class="src">Thiranex</span><a class="link" href="https://github.com/Pratikshaprabhakarbande/Phishing-Email-Detection-Model-Thiranextask3" rel="noopener">GitHub</a></li>
+      <li><h3>Secure Login System WebApp</h3><p>A web application built around secure authentication practices.</p><span class="src">Thiranex</span><a class="link" href="https://github.com/Pratikshaprabhakarbande/Secure-Login-System-WebApp-Thiranextask4" rel="noopener">GitHub</a></li>
+      <li><h3>Secure Coding Review</h3><p>Static analysis of an intentionally vulnerable Python application, with the flaws documented.</p><span class="src">CodeAlpha</span><a class="link" href="https://github.com/Pratikshaprabhakarbande/CodeAlpha_SecureCodingReview" rel="noopener">GitHub</a></li>
+      <li><h3>Password Strength Analyzer</h3><p>Security task from the Thiranex internship.</p><span class="src">Thiranex</span><a class="link" href="https://github.com/Pratikshaprabhakarbande/Thiranexproject1" rel="noopener">GitHub</a></li>
+      <li><h3>Automated Cloud Infrastructure Setup</h3><p>Cloud infrastructure provisioned with Terraform on OCI. About 40% less manual provisioning and about 30% fewer configuration errors.</p><span class="src">Independent</span><a class="link" href="https://github.com/Pratikshaprabhakarbande/AWS-Terraform-IaC-Provisioning" rel="noopener">GitHub</a></li>
+      <li><h3>Cloud Security Engineering Labs</h3><p>Hands-on labs for practising cloud security engineering.</p><span class="src">Independent</span><a class="link" href="https://github.com/Pratikshaprabhakarbande/Cloud-Security-Engineering-Labs" rel="noopener">GitHub</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Experience</h2>
+      <p class="lede">Three cybersecurity internships, most recent first.</p>
+    </div>
+
+    <div class="job">
+      <p class="when">May 2026 – Jun 2026</p>
+      <div>
+        <h3>Thiranex</h3>
+        <p class="role">Cyber Security Intern</p>
+        <ul><li>Conducted vulnerability assessments and completed practical cybersecurity projects under industry mentorship.</li></ul>
+        <p class="tasks"><span>Four practical tasks:</span>
+          <a href="https://github.com/Pratikshaprabhakarbande/Thiranexproject1" rel="noopener">Password Strength Analyzer</a>
+          <a href="https://github.com/Pratikshaprabhakarbande/Thiranextask2" rel="noopener">Vulnerability Scanner</a>
+          <a href="https://github.com/Pratikshaprabhakarbande/Phishing-Email-Detection-Model-Thiranextask3" rel="noopener">Phishing Detection</a>
+          <a href="https://github.com/Pratikshaprabhakarbande/Secure-Login-System-WebApp-Thiranextask4" rel="noopener">Secure Login</a>
+        </p>
+        <a class="link repo" href="https://github.com/Pratikshaprabhakarbande/Thiranex-Cybersecurity-Internship" rel="noopener">Internship repository</a>
+      </div>
+    </div>
+
+    <div class="job">
+      <p class="when">May 2026</p>
+      <div>
+        <h3>CodeAlpha</h3>
+        <p class="role">Cyber Security Intern</p>
+        <ul>
+          <li>Engineered and deployed a network monitoring solution to analyse traffic patterns and detect anomalies.</li>
+          <li>Ran static code analysis to identify vulnerabilities and support secure software practices.</li>
+        </ul>
+        <p class="tasks"><span>Tasks:</span>
+          <a href="https://github.com/Pratikshaprabhakarbande/CodeAlpha-Network-Intrusion-Detection" rel="noopener">Network Intrusion Detection</a>
+          <a href="https://github.com/Pratikshaprabhakarbande/CodeAlpha_SecureCodingReview" rel="noopener">Secure Coding Review</a>
+        </p>
+        <a class="link repo" href="https://github.com/Pratikshaprabhakarbande/CodeAlpha-Cybersecurity-Internship" rel="noopener">Internship repository</a>
+      </div>
+    </div>
+
+    <div class="job">
+      <p class="when">Jun 2025 – Jul 2025</p>
+      <div>
+        <h3>Future Interns</h3>
+        <p class="role">Cybersecurity Intern (Trainee), security monitoring and incident documentation</p>
+        <ul>
+          <li>Analysed and tested web applications and network systems, identifying issues and supporting their resolution.</li>
+          <li>Helped monitor system activity, analysed application logs and documented findings to improve reliability.</li>
+        </ul>
+        <a class="link repo" href="https://github.com/Pratikshaprabhakarbande/Future-Interns-Cybersecurity-Internship-Tasks" rel="noopener">Internship repository</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TOOLKIT ================= -->
+<section id="toolkit" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Toolkit</h2>
+      <p class="lede">What I reach for most is in bold.</p>
+    </div>
+    <div class="kit">
+      <div><h3>Security</h3><p><b>Penetration testing, VAPT, ethical hacking, threat analysis, network security, OWASP Top 10</b>, LLM security, prompt injection, RAG security, MCP security, SIEM fundamentals, log analysis.</p></div>
+      <div><h3>Security tools</h3><p><b>Kali Linux, Burp Suite, Nmap, Wireshark, Zeek</b>, Metasploit, Splunk (foundational), Git, GitHub, VS Code, VirtualBox, Vagrant.</p></div>
+      <div><h3>Cloud and DevSecOps</h3><p><b>AWS, OCI, Terraform, Docker</b>, Kubernetes, GitHub Actions, Jenkins, Azure (foundational exposure).</p></div>
+      <div><h3>Programming and full-stack development</h3><p><b>Python, JavaScript, TypeScript, React.js, Flask</b>, Java, C, SQL, Node.js, Express, FastAPI, MongoDB, REST APIs, Web3.py, HTML, CSS.</p></div>
+      <div><h3>Operating systems</h3><p><b>Linux</b>, Windows.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CREDENTIALS ================= -->
+<section id="credentials" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Credentials</h2>
+    </div>
+    <div class="cred-grid">
+      <div>
+        <p class="label" style="margin-bottom:14px">Certifications</p>
+        <ul class="certs">
+          <li class="lead"><h3>Certified Ethical Hacker (CEH v13)</h3><p>EC-Council</p><a class="link" href="https://drive.google.com/file/d/14d68RnLBlQWVsVq1BrOlT6pDUvpeoExb/view" rel="noopener">View</a></li>
+          <li><h3>Certified Online Fraud Prevention Specialist (COFPS)</h3><p>Hack &amp; Fix Academy</p><a class="link" href="https://drive.google.com/file/d/1J6UY7eQV5yva5bJZq9koCsJVF8ebiKfp/view" rel="noopener">View</a></li>
+          <li><h3>Oracle Cloud Infrastructure 2025 Certified Foundations Associate</h3><p>Oracle University</p><a class="link" href="https://drive.google.com/file/d/17syHEn_yceBaEp6gYjzcD7IJCqq-eoDZ/view" rel="noopener">View</a></li>
+          <li><h3>Certified Large Language Model Security Expert (CLLMSE)</h3><p>Red Team Leaders</p><a class="link" href="https://drive.google.com/file/d/1ltqb8ZQeZhc9OoRGLhYsM0qnzcde0fIE/view" rel="noopener">View</a></li>
+          <li><h3>Microsoft AI Skills Fest 2026</h3><p>Microsoft</p><a class="link" href="https://drive.google.com/file/d/1NttaQ1efIMciTuY9OKKtuit0AvVwWbO9/view" rel="noopener">View</a></li>
+          <li><h3>AWS Foundations: Getting Started with AWS Cloud Essentials</h3><p>Amazon Web Services</p><a class="link" href="https://drive.google.com/file/d/10_1gxtxE3tGySqSGfuv_3cFEqukS7KY8/view" rel="noopener">View</a></li>
+          <li><h3>Getting Started with Cybersecurity</h3><p>IBM SkillsBuild</p><a class="link" href="https://drive.google.com/file/d/1lZqX8EKsDSJ_0dvbgOvG7QkBKEjFOPGC/view" rel="noopener">View</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="label" style="margin-bottom:14px">Publication</p>
+        <div class="pub">
+          <p class="meta" style="margin-bottom:0">HBRP Research Publication, Vol. 01, Issue 02, 2025</p>
+          <h3>ARP Poisoning Prevention Using ICMP-Based Validation and Centralized Voting</h3>
+          <a class="link" href="https://drive.google.com/file/d/1pRaDEjSbWHnKvdUpz2zANl35r4nhR_EE/view" rel="noopener">Read the publication</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BEYOND THE CODE ================= -->
+<section id="beyond" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Beyond the code</h2>
+      <p class="lede">Hackathons, community work and GitHub achievements.</p>
+    </div>
+    <ul class="beyond">
+      <li><span class="when">GNDEC Bidar</span><div><h3>Secretary, Cyber Samurai Association</h3><p>Planned and coordinated Hacktober, a cybersecurity awareness event for 150+ students.</p></div><span></span></li>
+      <li><span class="when">Apr 2026</span><div><h3>ADVAYA 2.0, 24-hour national hackathon</h3><p>BGS College of Engineering and Technology. This is where GramKavach was built.</p></div><a class="link" href="https://drive.google.com/file/d/1Ylcrvut7GOKsjmNDSgSBNWXjEEHh9xOU/view" rel="noopener">Proof</a></li>
+      <li><span class="when">2026</span><div><h3>Cyber Kushti Hackathon</h3><p>Participant.</p></div><a class="link" href="https://drive.google.com/file/d/1OHhBZbvAXgsMNWECgSN3vQsVPQWt6P2n/view" rel="noopener">Proof</a></li>
+      <li><span class="when">2026</span><div><h3>National Financial Literacy Quiz</h3><p>Organised by NISM and SEBI. Participant.</p></div><a class="link" href="https://drive.google.com/file/d/1jNxdEJ3WF_NnLPgBr3dLdL48g0asf2I4/view" rel="noopener">Proof</a></li>
+      <li><span class="when">GitHub</span><div><h3>Pull Shark and Pair Extraordinaire</h3><p>Badges for merged pull requests and co-authored commits.</p></div><a class="link" href="https://drive.google.com/file/d/1MKMSh1_Thtvij8X_rBdU9K9rI8MfbLT9/view" rel="noopener">Proof</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Let's talk <em class="ac">security.</em></h2>
+    <p class="lede">I'm looking for cybersecurity internships and opportunities in security research, cloud security, AI security and secure systems, anywhere that kind of thinking is genuinely needed.</p>
+    <ul class="contact-links">
+      <li><span>Email</span><a href="mailto:bandepratiksha8@gmail.com">bandepratiksha8@gmail.com</a></li>
+      <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/bandepratiksha28" rel="noopener">linkedin.com/in/bandepratiksha28</a></li>
+      <li><span>GitHub</span><a href="https://github.com/Pratikshaprabhakarbande" rel="noopener">github.com/Pratikshaprabhakarbande</a></li>
+      <li><span>TryHackMe</span><a href="https://tryhackme.com/p/bandepratiksha8" rel="noopener">tryhackme.com/p/bandepratiksha8</a></li>
+    </ul>
+    <div class="cta">
+      <a class="btn primary" href="Pratiksha_Bande_Resume.pdf">Download Résumé</a>
+    </div>
+    <p class="phone">Bidar, Karnataka, India<br><a href="tel:+917204845588">+91-7204845588</a></p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Pratiksha Bande</span>
+    <span>Cybersecurity, IoT and Blockchain Technology</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* mobile menu */
+  var btn=document.querySelector('.menu-btn'),menu=document.getElementById('menu');
+  if(btn&&menu){
+    btn.addEventListener('click',function(){
+      var open=menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    menu.addEventListener('click',function(e){
+      if(e.target.closest('a')){menu.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+    });
+  }
+
+  /* scroll reveal targets */
+  var sel='.flag-visual figure';
+  document.querySelectorAll(sel).forEach(function(el){el.classList.add('rv');});
+  document.querySelectorAll('.steps li,.pipeline li').forEach(function(li){
+    li.style.setProperty('--i',Array.prototype.indexOf.call(li.parentNode.children,li));
+  });
+
+  function show(el){
+    el.classList.add('in');
+    if(el.classList.contains('diagram')){
+      setTimeout(function(){
+        el.classList.add('done');
+        if(reduce)return;
+        el.querySelectorAll('.dot').forEach(function(d,i){
+          var m=d.querySelector('animateMotion');
+          setTimeout(function(){
+            d.classList.add('on');
+            if(m&&m.beginElement)m.beginElement();
+            setTimeout(function(){d.classList.remove('on');},5800);
+          },i*900);
+        });
+      },reduce?0:4300);
+    }
+  }
+  var plain=document.querySelectorAll('.rv,.steps,.pipeline');
+  var diagrams=document.querySelectorAll('.diagram');
+  if(reduce||!('IntersectionObserver' in window)){
+    plain.forEach(show);diagrams.forEach(show);
+  }else{
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){show(e.target);io.unobserve(e.target);}
+    });},{threshold:.1,rootMargin:'0px 0px -8% 0px'});
+    plain.forEach(function(t){io.observe(t);});
+    var io2=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){show(e.target);io2.unobserve(e.target);}
+    });},{threshold:.4});
+    diagrams.forEach(function(t){io2.observe(t);});
+  }
+
+  /* nav active indicator */
+  var map={about:'about',focus:'about',work:'work',more:'work',building:'building',experience:'experience',toolkit:'toolkit',credentials:'credentials',beyond:'credentials',contact:'contact'};
+  var secs=Object.keys(map).map(function(id){return document.getElementById(id);}).filter(Boolean);
+  var links={};
+  document.querySelectorAll('.nav a.nl').forEach(function(a){links[a.getAttribute('href').slice(1)]=a;});
+  var ticking=false;
+  function spy(){
+    ticking=false;
+    var y=window.scrollY+140,cur=null;
+    secs.forEach(function(s){if(s.offsetTop<=y)cur=s.id;});
+    Object.keys(links).forEach(function(k){links[k].classList.toggle('active',!!cur&&map[cur]===k);});
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(spy);}},{passive:true});
+  spy();
+})();
+</script>
+</body>
+</html>
